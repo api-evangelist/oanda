@@ -1,0 +1,124 @@
+{
+    "name": "OANDA",
+    "description": "OANDA: Award-winning leader in Currency Data, Forex & CFD Trading, offering leveraged trading, payment and data services for businesses and investors.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/19007-oanda.jpg",
+    "tags": [
+        "api provider",
+        "contacts",
+        "currencies",
+        "financial",
+        "free trial",
+        "gold",
+        "have api",
+        "investment",
+        "market data",
+        "paid tier",
+        "precious metals",
+        "profile",
+        "silver",
+        "trading"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/oanda\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "OANDA",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/19007-oanda.jpg",
+            "humanURL": "http:\/\/developer.oanda.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/oanda-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/oanda-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "About",
+            "url": "http:\/\/developer.oanda.com\/about\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/oanda"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/developer.oanda.com\/"
+        },
+        {
+            "type": "Email",
+            "url": "fxdata@oanda.com"
+        },
+        {
+            "type": "Email",
+            "url": "webservices@oanda.com"
+        },
+        {
+            "type": "Email",
+            "url": "frontdesk@oanda.com"
+        },
+        {
+            "type": "Email",
+            "url": "moneytransfer@oanda.com"
+        },
+        {
+            "type": "Email",
+            "url": "accountid-eu@oanda.co.uk"
+        },
+        {
+            "type": "Email",
+            "url": "auscompliance@oanda.com"
+        },
+        {
+            "type": "Email",
+            "url": "new-accounts@oanda.com"
+        },
+        {
+            "type": "Email",
+            "url": "privacyoffice@oanda.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/oanda"
+        },
+        {
+            "type": "LinkedIn",
+            "url": "https:\/\/www.linkedin.com\/company\/oanda"
+        },
+        {
+            "type": "Privacy Policy",
+            "url": "https:\/\/www.oanda.com\/resources\/legal\/united-states\/legal\/privacy"
+        },
+        {
+            "type": "Terms of Service",
+            "url": "https:\/\/www.oanda.com\/resources\/legal\/united-states\/legal\/terms-of-use"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/OANDA"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.oanda.com\/"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.oanda.com"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/developer.oanda.com"
+        }
+    ]
+}
