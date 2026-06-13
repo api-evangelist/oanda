@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TradeState",
+  "description": "The current state of the Trade.",
+  "type": "string",
+  "enum": [
+    "OPEN",
+    "CLOSED",
+    "CLOSE_WHEN_TRADEABLE"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AccountID",
+  "description": "The string representation of an Account Identifier.",
+  "type": "string",
+  "format": "\"-\"-delimited string with format \"{siteID}-{divisionID}-{userID}-{accountNumber}\""
+}

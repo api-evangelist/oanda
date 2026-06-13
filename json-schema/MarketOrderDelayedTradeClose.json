@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MarketOrderDelayedTradeClose",
+  "description": "Details for the Market Order extensions specific to a Market Order placed with the intent of fully closing a specific open trade that should have already been closed but wasn't due to halted market conditions",
+  "type": "object",
+  "properties": {
+    "tradeID": {
+      "type": "string",
+      "description": "The ID of the Trade being closed",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "clientTradeID": {
+      "type": "string",
+      "description": "The Client ID of the Trade being closed",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "sourceTransactionID": {
+      "type": "string",
+      "description": "The Transaction ID of the DelayedTradeClosure transaction to which this Delayed Trade Close belongs to",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    }
+  }
+}

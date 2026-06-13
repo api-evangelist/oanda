@@ -1,0 +1,29 @@
+{
+  "operationId": "replaceOrder",
+  "summary": "Replace Order",
+  "method": "PUT",
+  "path": "/accounts/{accountID}/orders/{orderSpecifier}",
+  "parameters": {},
+  "responses": {
+    "201": {
+      "description": "The Order was successfully cancelled and replaced",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The Order specification was invalid",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "The Account or Order specified does not exist.",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

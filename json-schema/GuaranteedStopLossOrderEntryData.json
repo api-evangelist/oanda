@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GuaranteedStopLossOrderEntryData",
+  "description": "Details required by clients creating a Guaranteed Stop Loss Order",
+  "type": "object",
+  "properties": {
+    "minimumDistance": {
+      "type": "string",
+      "description": "The minimum distance allowed between the Trade's fill price and the configured price for guaranteed Stop Loss Orders created for this instrument. Specified in price units.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "premium": {
+      "type": "string",
+      "description": "The amount that is charged to the account if a guaranteed Stop Loss Order is triggered and filled. The value is in price units and is charged for each unit of the Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "levelRestriction": {
+      "$ref": "#/definitions/GuaranteedStopLossOrderLevelRestriction"
+    }
+  }
+}

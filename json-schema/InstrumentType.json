@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstrumentType",
+  "description": "The type of an Instrument.",
+  "type": "string",
+  "enum": [
+    "CURRENCY",
+    "CFD",
+    "METAL"
+  ]
+}

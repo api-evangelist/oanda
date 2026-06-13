@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DynamicOrderState",
+  "description": "The dynamic state of an Order. This is only relevant to TrailingStopLoss Orders, as no other Order type has dynamic state.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Order's ID.",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "trailingStopValue": {
+      "type": "string",
+      "description": "The Order's calculated trailing stop value.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "triggerDistance": {
+      "type": "string",
+      "description": "The distance between the Trailing Stop Loss Order's trailingStopValue and the current Market Price. This represents the distance (in price units) of the Order from a triggering price. If the distance could not be determined, this value will not be set.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "isTriggerDistanceExact": {
+      "type": "boolean",
+      "description": "True if an exact trigger distance could be calculated. If false, it means the provided trigger distance is a best estimate. If the distance could not be determined, this value will not be set."
+    }
+  }
+}

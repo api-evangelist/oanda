@@ -1,0 +1,33 @@
+{
+  "operationId": "createOrder",
+  "summary": "Create Order",
+  "method": "POST",
+  "path": "/accounts/{accountID}/orders",
+  "parameters": {},
+  "responses": {
+    "201": {
+      "description": "The Order was created as specified",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The Order specification was invalid",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "403": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "The Order or Account specified does not exist.",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

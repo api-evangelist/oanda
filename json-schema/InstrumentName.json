@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstrumentName",
+  "description": "Instrument name identifier. Used by clients to refer to an Instrument.",
+  "type": "string",
+  "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+}

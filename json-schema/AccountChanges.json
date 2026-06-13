@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AccountChanges",
+  "description": "An AccountChanges Object is used to represent the changes to an Account's Orders, Trades and Positions since a specified Account TransactionID in the past.",
+  "type": "object",
+  "properties": {
+    "ordersCreated": {
+      "type": "array",
+      "description": "The Orders created. These Orders may have been filled, cancelled or triggered in the same period.",
+      "items": {
+        "$ref": "#/definitions/Order"
+      }
+    },
+    "ordersCancelled": {
+      "type": "array",
+      "description": "The Orders cancelled.",
+      "items": {
+        "$ref": "#/definitions/Order"
+      }
+    },
+    "ordersFilled": {
+      "type": "array",
+      "description": "The Orders filled.",
+      "items": {
+        "$ref": "#/definitions/Order"
+      }
+    },
+    "ordersTriggered": {
+      "type": "array",
+      "description": "The Orders triggered.",
+      "items": {
+        "$ref": "#/definitions/Order"
+      }
+    },
+    "tradesOpened": {
+      "type": "array",
+      "description": "The Trades opened.",
+      "items": {
+        "$ref": "#/definitions/TradeSummary"
+      }
+    },
+    "tradesReduced": {
+      "type": "array",
+      "description": "The Trades reduced.",
+      "items": {
+        "$ref": "#/definitions/TradeSummary"
+      }
+    },
+    "tradesClosed": {
+      "type": "array",
+      "description": "The Trades closed.",
+      "items": {
+        "$ref": "#/definitions/TradeSummary"
+      }
+    },
+    "positions": {
+      "type": "array",
+      "description": "The Positions changed.",
+      "items": {
+        "$ref": "#/definitions/Position"
+      }
+    },
+    "transactions": {
+      "type": "array",
+      "description": "The Transactions that have been generated.",
+      "items": {
+        "$ref": "#/definitions/Transaction"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AccountProperties",
+  "description": "Properties related to an Account.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Account's identifier",
+      "format": "\"-\"-delimited string with format \"{siteID}-{divisionID}-{userID}-{accountNumber}\""
+    },
+    "mt4AccountID": {
+      "type": "integer",
+      "description": "The Account's associated MT4 Account ID. This field will not be present if the Account is not an MT4 account."
+    },
+    "tags": {
+      "type": "array",
+      "description": "The Account's tags",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClientID",
+  "description": "A client-provided identifier, used by clients to refer to their Orders or Trades with an identifier that they have provided.",
+  "type": "string"
+}

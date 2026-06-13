@@ -1,0 +1,25 @@
+{
+  "operationId": "getTransaction",
+  "summary": "Transaction Details",
+  "method": "GET",
+  "path": "/accounts/{accountID}/transactions/{transactionID}",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The details of the requested Transaction are provided.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

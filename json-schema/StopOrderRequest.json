@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StopOrderRequest",
+  "description": "A StopOrderRequest specifies the parameters that may be set when creating a Stop Order.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of the Order to Create. Must be set to \"STOP\" when creating a Stop Order.",
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "MARKET_IF_TOUCHED",
+        "TAKE_PROFIT",
+        "STOP_LOSS",
+        "TRAILING_STOP_LOSS",
+        "FIXED_PRICE"
+      ]
+    },
+    "instrument": {
+      "type": "string",
+      "description": "The Stop Order's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "units": {
+      "type": "string",
+      "description": "The quantity requested to be filled by the Stop Order. A posititive number of units results in a long Order, and a negative number of units results in a short Order.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "price": {
+      "type": "string",
+      "description": "The price threshold specified for the Stop Order. The Stop Order will only be filled by a market price that is equal to or worse than this price.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "priceBound": {
+      "type": "string",
+      "description": "The worst market price that may be used to fill this Stop Order. If the market gaps and crosses through both the price and the priceBound, the Stop Order will be cancelled instead of being filled.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "timeInForce": {
+      "type": "string",
+      "description": "The time-in-force requested for the Stop Order.",
+      "enum": [
+        "GTC",
+        "GTD",
+        "GFD",
+        "FOK",
+        "IOC"
+      ]
+    },
+    "gtdTime": {
+      "type": "string",
+      "description": "The date/time when the Stop Order will be cancelled if its timeInForce is \"GTD\".",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "positionFill": {
+      "type": "string",
+      "description": "Specification of how Positions in the Account are modified when the Order is filled.",
+      "enum": [
+        "OPEN_ONLY",
+        "REDUCE_FIRST",
+        "REDUCE_ONLY",
+        "DEFAULT"
+      ]
+    },
+    "triggerCondition": {
+      "type": "string",
+      "description": "Specification of which price component should be used when determining if an Order should be triggered and filled. This allows Orders to be triggered based on the bid, ask, mid, default (ask for buy, bid for sell) or inverse (ask for sell, bid for buy) price depending on the desired behaviour. Orders are always filled using their default price component.\nThis feature is only provided through the REST API. Clients who choose to specify a non-default trigger condition will not see it reflected in any of OANDA's proprietary or partner trading platforms, their transaction history or their account statements. OANDA platforms always assume that an Order's trigger condition is set to the default value when indicating the distance from an Order's trigger price, and will always provide the default trigger condition when creating or modifying an Order.\nA special restriction applies when creating a guaranteed Stop Loss Order. In this case the TriggerCondition value must either be \"DEFAULT\", or the \"natural\" trigger side \"DEFAULT\" results in. So for a Stop Loss Order for a long trade valid values are \"DEFAULT\" and \"BID\", and for short trades \"DEFAULT\" and \"ASK\" are valid.",
+      "enum": [
+        "DEFAULT",
+        "INVERSE",
+        "BID",
+        "ASK",
+        "MID"
+      ]
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "takeProfitOnFill": {
+      "$ref": "#/definitions/TakeProfitDetails"
+    },
+    "stopLossOnFill": {
+      "$ref": "#/definitions/StopLossDetails"
+    },
+    "trailingStopLossOnFill": {
+      "$ref": "#/definitions/TrailingStopLossDetails"
+    },
+    "tradeClientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    }
+  }
+}

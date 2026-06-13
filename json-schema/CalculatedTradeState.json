@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CalculatedTradeState",
+  "description": "The dynamic (calculated) state of an open Trade",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Trade's ID.",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "unrealizedPL": {
+      "type": "string",
+      "description": "The Trade's unrealized profit/loss.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginUsed": {
+      "type": "string",
+      "description": "Margin currently used by the Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    }
+  }
+}

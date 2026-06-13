@@ -1,0 +1,25 @@
+{
+  "operationId": "listPendingOrders",
+  "summary": "Pending Orders",
+  "method": "GET",
+  "path": "/accounts/{accountID}/pendingOrders",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "List of pending Orders for the Account",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

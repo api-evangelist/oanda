@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MarketIfTouchedOrder",
+  "description": "A MarketIfTouchedOrder is an order that is created with a price threshold, and will only be filled by a market price that is touches or crosses the threshold.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Order's identifier, unique within the Order's Account.",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "createTime": {
+      "type": "string",
+      "description": "The time when the Order was created.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "state": {
+      "type": "string",
+      "description": "The current state of the Order.",
+      "enum": [
+        "PENDING",
+        "FILLED",
+        "TRIGGERED",
+        "CANCELLED"
+      ]
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the Order. Always set to \"MARKET_IF_TOUCHED\" for Market If Touched Orders.",
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "MARKET_IF_TOUCHED",
+        "TAKE_PROFIT",
+        "STOP_LOSS",
+        "TRAILING_STOP_LOSS",
+        "FIXED_PRICE"
+      ]
+    },
+    "instrument": {
+      "type": "string",
+      "description": "The MarketIfTouched Order's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "units": {
+      "type": "string",
+      "description": "The quantity requested to be filled by the MarketIfTouched Order. A posititive number of units results in a long Order, and a negative number of units results in a short Order.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "price": {
+      "type": "string",
+      "description": "The price threshold specified for the MarketIfTouched Order. The MarketIfTouched Order will only be filled by a market price that crosses this price from the direction of the market price at the time when the Order was created (the initialMarketPrice). Depending on the value of the Order's price and initialMarketPrice, the MarketIfTouchedOrder will behave like a Limit or a Stop Order.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "priceBound": {
+      "type": "string",
+      "description": "The worst market price that may be used to fill this MarketIfTouched Order.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "timeInForce": {
+      "type": "string",
+      "description": "The time-in-force requested for the MarketIfTouched Order. Restricted to \"GTC\", \"GFD\" and \"GTD\" for MarketIfTouched Orders.",
+      "enum": [
+        "GTC",
+        "GTD",
+        "GFD",
+        "FOK",
+        "IOC"
+      ]
+    },
+    "gtdTime": {
+      "type": "string",
+      "description": "The date/time when the MarketIfTouched Order will be cancelled if its timeInForce is \"GTD\".",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "positionFill": {
+      "type": "string",
+      "description": "Specification of how Positions in the Account are modified when the Order is filled.",
+      "enum": [
+        "OPEN_ONLY",
+        "REDUCE_FIRST",
+        "REDUCE_ONLY",
+        "DEFAULT"
+      ]
+    },
+    "triggerCondition": {
+      "type": "string",
+      "description": "Specification of which price component should be used when determining if an Order should be triggered and filled. This allows Orders to be triggered based on the bid, ask, mid, default (ask for buy, bid for sell) or inverse (ask for sell, bid for buy) price depending on the desired behaviour. Orders are always filled using their default price component.\nThis feature is only provided through the REST API. Clients who choose to specify a non-default trigger condition will not see it reflected in any of OANDA's proprietary or partner trading platforms, their transaction history or their account statements. OANDA platforms always assume that an Order's trigger condition is set to the default value when indicating the distance from an Order's trigger price, and will always provide the default trigger condition when creating or modifying an Order.\nA special restriction applies when creating a guaranteed Stop Loss Order. In this case the TriggerCondition value must either be \"DEFAULT\", or the \"natural\" trigger side \"DEFAULT\" results in. So for a Stop Loss Order for a long trade valid values are \"DEFAULT\" and \"BID\", and for short trades \"DEFAULT\" and \"ASK\" are valid.",
+      "enum": [
+        "DEFAULT",
+        "INVERSE",
+        "BID",
+        "ASK",
+        "MID"
+      ]
+    },
+    "initialMarketPrice": {
+      "type": "string",
+      "description": "The Market price at the time when the MarketIfTouched Order was created.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "takeProfitOnFill": {
+      "$ref": "#/definitions/TakeProfitDetails"
+    },
+    "stopLossOnFill": {
+      "$ref": "#/definitions/StopLossDetails"
+    },
+    "trailingStopLossOnFill": {
+      "$ref": "#/definitions/TrailingStopLossDetails"
+    },
+    "tradeClientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "fillingTransactionID": {
+      "type": "string",
+      "description": "ID of the Transaction that filled this Order (only provided when the Order's state is FILLED)",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    },
+    "filledTime": {
+      "type": "string",
+      "description": "Date/time when the Order was filled (only provided when the Order's state is FILLED)",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "tradeOpenedID": {
+      "type": "string",
+      "description": "Trade ID of Trade opened when the Order was filled (only provided when the Order's state is FILLED and a Trade was opened as a result of the fill)",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "tradeReducedID": {
+      "type": "string",
+      "description": "Trade ID of Trade reduced when the Order was filled (only provided when the Order's state is FILLED and a Trade was reduced as a result of the fill)",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "tradeClosedIDs": {
+      "type": "array",
+      "description": "Trade IDs of Trades closed when the Order was filled (only provided when the Order's state is FILLED and one or more Trades were closed as a result of the fill)",
+      "items": {
+        "type": "string",
+        "description": "The Trade's identifier, unique within the Trade's Account.",
+        "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+      }
+    },
+    "cancellingTransactionID": {
+      "type": "string",
+      "description": "ID of the Transaction that cancelled the Order (only provided when the Order's state is CANCELLED)",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    },
+    "cancelledTime": {
+      "type": "string",
+      "description": "Date/time when the Order was cancelled (only provided when the state of the Order is CANCELLED)",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "replacesOrderID": {
+      "type": "string",
+      "description": "The ID of the Order that was replaced by this Order (only provided if this Order was created as part of a cancel/replace).",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "replacedByOrderID": {
+      "type": "string",
+      "description": "The ID of the Order that replaced this Order (only provided if this Order was cancelled as part of a cancel/replace).",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MarketOrderPositionCloseout",
+  "description": "A MarketOrderPositionCloseout specifies the extensions to a Market Order when it has been created to closeout a specific Position.",
+  "type": "object",
+  "properties": {
+    "instrument": {
+      "type": "string",
+      "description": "The instrument of the Position being closed out.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "units": {
+      "type": "string",
+      "description": "Indication of how much of the Position to close. Either \"ALL\", or a DecimalNumber reflection a partial close of the Trade. The DecimalNumber must always be positive, and represent a number that doesn't exceed the absolute size of the Position."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderStateFilter",
+  "description": "The state to filter the requested Orders by.",
+  "type": "string",
+  "enum": [
+    "PENDING",
+    "FILLED",
+    "TRIGGERED",
+    "CANCELLED",
+    "ALL"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenTradeFinancing",
+  "description": "OpenTradeFinancing is used to pay/collect daily financing charge for an open Trade within an Account",
+  "type": "object",
+  "properties": {
+    "tradeID": {
+      "type": "string",
+      "description": "The ID of the Trade that financing is being paid/collected for.",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "financing": {
+      "type": "string",
+      "description": "The amount of financing paid/collected for the Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    }
+  }
+}

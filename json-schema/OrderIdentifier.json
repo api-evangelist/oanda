@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderIdentifier",
+  "description": "An OrderIdentifier is used to refer to an Order, and contains both the OrderID and the ClientOrderID.",
+  "type": "object",
+  "properties": {
+    "orderID": {
+      "type": "string",
+      "description": "The OANDA-assigned Order ID",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "clientOrderID": {
+      "type": "string",
+      "description": "The client-provided client Order ID"
+    }
+  }
+}

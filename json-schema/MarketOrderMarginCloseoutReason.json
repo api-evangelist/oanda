@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MarketOrderMarginCloseoutReason",
+  "description": "The reason that the Market Order was created to perform a margin closeout",
+  "type": "string",
+  "enum": [
+    "MARGIN_CHECK_VIOLATION",
+    "REGULATORY_MARGIN_CALL_VIOLATION",
+    "REGULATORY_MARGIN_CHECK_VIOLATION"
+  ]
+}

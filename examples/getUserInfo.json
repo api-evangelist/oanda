@@ -1,0 +1,25 @@
+{
+  "operationId": "getUserInfo",
+  "summary": "User Info",
+  "method": "GET",
+  "path": "/users/{userSpecifier}",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The user information has been provided",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "403": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

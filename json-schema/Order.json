@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Order",
+  "description": "The base Order definition specifies the properties that are common to all Orders.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Order's identifier, unique within the Order's Account.",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "createTime": {
+      "type": "string",
+      "description": "The time when the Order was created.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "state": {
+      "type": "string",
+      "description": "The current state of the Order.",
+      "enum": [
+        "PENDING",
+        "FILLED",
+        "TRIGGERED",
+        "CANCELLED"
+      ]
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    }
+  }
+}

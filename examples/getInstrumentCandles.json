@@ -1,0 +1,29 @@
+{
+  "operationId": "getInstrumentCandles",
+  "summary": "Get Candlesticks",
+  "method": "GET",
+  "path": "/accounts/{accountID}/instruments/{instrument}/candles",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "Pricing information has been successfully provided.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "operationId": "streamTransactions",
+  "summary": "Transaction Stream",
+  "method": "GET",
+  "path": "/accounts/{accountID}/transactions/stream",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "Connecting to the Transaction Stream was successful.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

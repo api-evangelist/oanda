@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TradeOpen",
+  "description": "A TradeOpen object represents a Trade for an instrument that was opened in an Account. It is found embedded in Transactions that affect the position of an instrument in the Account, specifically the OrderFill Transaction.",
+  "type": "object",
+  "properties": {
+    "tradeID": {
+      "type": "string",
+      "description": "The ID of the Trade that was opened",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "units": {
+      "type": "string",
+      "description": "The number of units opened by the Trade",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "price": {
+      "type": "string",
+      "description": "The average price that the units were opened at.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "guaranteedExecutionFee": {
+      "type": "string",
+      "description": "This is the fee charged for opening the trade if it has a guaranteed Stop Loss Order attached to it.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "halfSpreadCost": {
+      "type": "string",
+      "description": "The half spread cost for the trade open. This can be a positive or negative value and is represented in the home currency of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "initialMarginRequired": {
+      "type": "string",
+      "description": "The margin required at the time the Trade was created. Note, this is the 'pure' margin required, it is not the 'effective' margin used that factors in the trade risk if a GSLO is attached to the trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    }
+  }
+}

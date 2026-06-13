@@ -1,0 +1,29 @@
+{
+  "operationId": "setTradeDependentOrders",
+  "summary": "Set Dependent Orders",
+  "method": "PUT",
+  "path": "/accounts/{accountID}/trades/{tradeSpecifier}/orders",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Trade's dependent Orders have been modified as requested.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The Trade's dependent Orders cannot be modified as requested.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

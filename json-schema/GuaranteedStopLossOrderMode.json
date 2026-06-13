@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GuaranteedStopLossOrderMode",
+  "description": "The overall behaviour of the Account regarding guaranteed Stop Loss Orders.",
+  "type": "string",
+  "enum": [
+    "DISABLED",
+    "ALLOWED",
+    "REQUIRED"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderType",
+  "description": "The type of the Order.",
+  "type": "string",
+  "enum": [
+    "MARKET",
+    "LIMIT",
+    "STOP",
+    "MARKET_IF_TOUCHED",
+    "TAKE_PROFIT",
+    "STOP_LOSS",
+    "TRAILING_STOP_LOSS",
+    "FIXED_PRICE"
+  ]
+}

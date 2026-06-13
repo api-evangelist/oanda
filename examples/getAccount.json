@@ -1,0 +1,25 @@
+{
+  "operationId": "getAccount",
+  "summary": "Account Details",
+  "method": "GET",
+  "path": "/accounts/{accountID}",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The full Account details are provided",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

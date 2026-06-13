@@ -1,0 +1,25 @@
+{
+  "operationId": "cancelOrder",
+  "summary": "Cancel Order",
+  "method": "PUT",
+  "path": "/accounts/{accountID}/orders/{orderSpecifier}/cancel",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Order was cancelled as specified",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "The Account or Order specified does not exist.",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

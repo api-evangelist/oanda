@@ -1,0 +1,21 @@
+{
+  "operationId": "listAccounts",
+  "summary": "List Accounts",
+  "method": "GET",
+  "path": "/accounts",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The list of authorized Accounts has been provided.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

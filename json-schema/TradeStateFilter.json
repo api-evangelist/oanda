@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TradeStateFilter",
+  "description": "The state to filter the Trades by",
+  "type": "string",
+  "enum": [
+    "OPEN",
+    "CLOSED",
+    "CLOSE_WHEN_TRADEABLE",
+    "ALL"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "operationId": "listOpenTrades",
+  "summary": "List Open Trades",
+  "method": "GET",
+  "path": "/accounts/{accountID}/openTrades",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Account's list of open Trades is provided",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

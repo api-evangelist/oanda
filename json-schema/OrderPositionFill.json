@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderPositionFill",
+  "description": "Specification of how Positions in the Account are modified when the Order is filled.",
+  "type": "string",
+  "enum": [
+    "OPEN_ONLY",
+    "REDUCE_FIRST",
+    "REDUCE_ONLY",
+    "DEFAULT"
+  ]
+}

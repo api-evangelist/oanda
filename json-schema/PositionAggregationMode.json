@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PositionAggregationMode",
+  "description": "The way that position values for an Account are calculated and aggregated.",
+  "type": "string",
+  "enum": [
+    "ABSOLUTE_SUM",
+    "MAXIMAL_SIDE",
+    "NET_SUM"
+  ]
+}

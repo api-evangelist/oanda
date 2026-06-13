@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Currency",
+  "description": "Currency name identifier. Used by clients to refer to currencies.",
+  "type": "string",
+  "format": "A string containing an ISO 4217 currency (http://en.wikipedia.org/wiki/ISO_4217)"
+}

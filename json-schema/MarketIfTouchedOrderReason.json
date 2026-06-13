@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MarketIfTouchedOrderReason",
+  "description": "The reason that the Market-if-touched Order was initiated",
+  "type": "string",
+  "enum": [
+    "CLIENT_ORDER",
+    "REPLACEMENT"
+  ]
+}

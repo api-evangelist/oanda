@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CandlestickData",
+  "description": "The price data (open, high, low, close) for the Candlestick representation.",
+  "type": "object",
+  "properties": {
+    "o": {
+      "type": "string",
+      "description": "The first (open) price in the time-range represented by the candlestick.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "h": {
+      "type": "string",
+      "description": "The highest price in the time-range represented by the candlestick.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "l": {
+      "type": "string",
+      "description": "The lowest price in the time-range represented by the candlestick.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "c": {
+      "type": "string",
+      "description": "The last (closing) price in the time-range represented by the candlestick.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    }
+  }
+}

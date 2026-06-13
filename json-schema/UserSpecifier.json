@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserSpecifier",
+  "description": "The specifier that refers to a User",
+  "type": "string",
+  "format": "A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided)."
+}

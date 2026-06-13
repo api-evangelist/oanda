@@ -1,0 +1,37 @@
+{
+  "operationId": "listTransactions",
+  "summary": "List Transactions",
+  "method": "GET",
+  "path": "/accounts/{accountID}/transactions",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The requested time range of Transaction pages are provided.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "403": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "416": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

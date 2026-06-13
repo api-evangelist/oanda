@@ -1,0 +1,29 @@
+{
+  "operationId": "streamPricing",
+  "summary": "Price Stream",
+  "method": "GET",
+  "path": "/accounts/{accountID}/pricing/stream",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "Connecting to the Price Stream was successful.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

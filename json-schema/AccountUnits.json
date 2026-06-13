@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AccountUnits",
+  "description": "The string representation of a quantity of an Account's home currency.",
+  "type": "string",
+  "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+}

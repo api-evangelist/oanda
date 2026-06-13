@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TimeInForce",
+  "description": "The time-in-force of an Order. TimeInForce describes how long an Order should remain pending before being automatically cancelled by the execution system.",
+  "type": "string",
+  "enum": [
+    "GTC",
+    "GTD",
+    "GFD",
+    "FOK",
+    "IOC"
+  ]
+}

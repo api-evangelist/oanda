@@ -1,0 +1,347 @@
+{
+  "@context": {
+    "@vocab": "https://developer.oanda.com/rest-live-v20/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "provider": "schema:provider"
+  },
+  "@type": "schema:WebAPI",
+  "@id": "https://developer.oanda.com/rest-live-v20/",
+  "name": "OANDA v20 REST API",
+  "description": "The full OANDA v20 REST API Specification. This specification defines how to interact with v20 Accounts, Trades, Orders, Pricing and more.",
+  "version": "3.0.25",
+  "url": "https://developer.oanda.com/rest-live-v20/",
+  "provider": {
+    "@type": "schema:Organization",
+    "name": "OANDA",
+    "url": "https://www.oanda.com"
+  },
+  "documentation": "https://developer.oanda.com/rest-live-v20/introduction/",
+  "license": "https://github.com/oanda/v20-openapi/blob/master/LICENSE.txt",
+  "endpoints": [
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getInstrumentCandles",
+      "description": "Get Candlesticks",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/instruments/{instrument}/candles",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getInstrumentPrice",
+      "description": "Price",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/instruments/{instrument}/price",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getInstrumentPriceRange",
+      "description": "Get Prices",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/instruments/{instrument}/price/range",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "",
+      "description": "Get Order Book",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/instruments/{instrument}/orderBook",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "",
+      "description": "Get Position Book",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/instruments/{instrument}/positionBook",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listPositions",
+      "description": "List Positions",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/positions",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listOpenPositions",
+      "description": "Open Positions",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/openPositions",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getPosition",
+      "description": "Instrument Position",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/positions/{instrument}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "closePosition",
+      "description": "Close Position",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/positions/{instrument}/close",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listTrades",
+      "description": "List Trades",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/trades",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listOpenTrades",
+      "description": "List Open Trades",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/openTrades",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getTrade",
+      "description": "Trade Details",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/trades/{tradeSpecifier}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "closeTrade",
+      "description": "Close Trade",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/trades/{tradeSpecifier}/close",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "setTradeClientExtensions",
+      "description": "Set Trade Client Extensions",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/trades/{tradeSpecifier}/clientExtensions",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "setTradeDependentOrders",
+      "description": "Set Dependent Orders",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/trades/{tradeSpecifier}/orders",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listAccounts",
+      "description": "List Accounts",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getAccount",
+      "description": "Account Details",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getAccountSummary",
+      "description": "Account Summary",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/summary",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getAccountInstruments",
+      "description": "Account Instruments",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/instruments",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "configureAccount",
+      "description": "Configure Account",
+      "httpMethod": "PATCH",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/configuration",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getAccountChanges",
+      "description": "Poll Account Updates",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/changes",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listTransactions",
+      "description": "List Transactions",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/transactions",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getTransaction",
+      "description": "Transaction Details",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/transactions/{transactionID}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getTransactionRange",
+      "description": "Transaction ID Range",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/transactions/idrange",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getTransactionsSinceId",
+      "description": "Transactions Since ID",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/transactions/sinceid",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "streamTransactions",
+      "description": "Transaction Stream",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/transactions/stream",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getUserInfo",
+      "description": "User Info",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/users/{userSpecifier}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getExternalUserInfo",
+      "description": "External User Info",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/users/{userSpecifier}/externalInfo",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getBasePrices",
+      "description": "Get Base Prices",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/pricing",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getPriceRange",
+      "description": "Get Price Range",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/pricing/range",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getPrices",
+      "description": "Current Account Prices",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/pricing",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "streamPricing",
+      "description": "Price Stream",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/pricing/stream",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getInstrumentCandles",
+      "description": "Get Candlesticks",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/instruments/{instrument}/candles",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "createOrder",
+      "description": "Create Order",
+      "httpMethod": "POST",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/orders",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listOrders",
+      "description": "List Orders",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/orders",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "listPendingOrders",
+      "description": "Pending Orders",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/pendingOrders",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "getOrder",
+      "description": "Get Order",
+      "httpMethod": "GET",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/orders/{orderSpecifier}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "replaceOrder",
+      "description": "Replace Order",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/orders/{orderSpecifier}",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "cancelOrder",
+      "description": "Cancel Order",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/orders/{orderSpecifier}/cancel",
+      "tags": []
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "name": "setOrderClientExtensions",
+      "description": "Set Order Extensions",
+      "httpMethod": "PUT",
+      "urlTemplate": "https://api-fxtrade.oanda.com/v3/accounts/{accountID}/orders/{orderSpecifier}/clientExtensions",
+      "tags": []
+    }
+  ]
+}

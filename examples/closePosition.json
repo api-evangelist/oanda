@@ -1,0 +1,29 @@
+{
+  "operationId": "closePosition",
+  "summary": "Close Position",
+  "method": "PUT",
+  "path": "/accounts/{accountID}/positions/{instrument}/close",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Position closeout request has been successfully processed.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The Parameters provided that describe the Position closeout are invalid.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "The Account or one or more of the Positions specified does not exist.",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

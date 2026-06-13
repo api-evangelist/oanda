@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderBook",
+  "description": "The representation of an instrument's order book at a point in time",
+  "type": "object",
+  "properties": {
+    "instrument": {
+      "type": "string",
+      "description": "The order book's instrument",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "time": {
+      "type": "string",
+      "description": "The time when the order book snapshot was created.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "price": {
+      "type": "string",
+      "description": "The price (midpoint) for the order book's instrument at the time of the order book snapshot",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "bucketWidth": {
+      "type": "string",
+      "description": "The price width for each bucket. Each bucket covers the price range from the bucket's price to the bucket's price + bucketWidth.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "buckets": {
+      "type": "array",
+      "description": "The partitioned order book, divided into buckets using a default bucket width. These buckets are only provided for price ranges which actually contain order or position data.",
+      "items": {
+        "$ref": "#/definitions/OrderBookBucket"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PriceValue",
+  "description": "The string representation of a Price for a Bucket.",
+  "type": "string",
+  "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+}

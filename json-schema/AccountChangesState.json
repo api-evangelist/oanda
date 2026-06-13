@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AccountChangesState",
+  "description": "An AccountState Object is used to represent an Account's current price-dependent state. Price-dependent Account state is dependent on OANDA's current Prices, and includes things like unrealized PL, NAV and Trailing Stop Loss Order state.",
+  "type": "object",
+  "properties": {
+    "unrealizedPL": {
+      "type": "string",
+      "description": "The total unrealized profit/loss for all Trades currently open in the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "NAV": {
+      "type": "string",
+      "description": "The net asset value of the Account. Equal to Account balance + unrealizedPL.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginUsed": {
+      "type": "string",
+      "description": "Margin currently used for the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginAvailable": {
+      "type": "string",
+      "description": "Margin available for Account currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "positionValue": {
+      "type": "string",
+      "description": "The value of the Account's open positions represented in the Account's home currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutUnrealizedPL": {
+      "type": "string",
+      "description": "The Account's margin closeout unrealized PL.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutNAV": {
+      "type": "string",
+      "description": "The Account's margin closeout NAV.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutMarginUsed": {
+      "type": "string",
+      "description": "The Account's margin closeout margin used.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutPercent": {
+      "type": "string",
+      "description": "The Account's margin closeout percentage. When this value is 1.0 or above the Account is in a margin closeout situation.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "marginCloseoutPositionValue": {
+      "type": "string",
+      "description": "The value of the Account's open positions as used for margin closeout calculations represented in the Account's home currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "withdrawalLimit": {
+      "type": "string",
+      "description": "The current WithdrawalLimit for the account which will be zero or a positive value indicating how much can be withdrawn from the account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCallMarginUsed": {
+      "type": "string",
+      "description": "The Account's margin call margin used.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCallPercent": {
+      "type": "string",
+      "description": "The Account's margin call percentage. When this value is 1.0 or above the Account is in a margin call situation.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "orders": {
+      "type": "array",
+      "description": "The price-dependent state of each pending Order in the Account.",
+      "items": {
+        "$ref": "#/definitions/DynamicOrderState"
+      }
+    },
+    "trades": {
+      "type": "array",
+      "description": "The price-dependent state for each open Trade in the Account.",
+      "items": {
+        "$ref": "#/definitions/CalculatedTradeState"
+      }
+    },
+    "positions": {
+      "type": "array",
+      "description": "The price-dependent state for each open Position in the Account.",
+      "items": {
+        "$ref": "#/definitions/CalculatedPositionState"
+      }
+    }
+  }
+}

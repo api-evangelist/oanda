@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Instrument",
+  "description": "Full specification of an Instrument.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the Instrument",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the Instrument",
+      "enum": [
+        "CURRENCY",
+        "CFD",
+        "METAL"
+      ]
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The display name of the Instrument"
+    },
+    "pipLocation": {
+      "type": "integer",
+      "description": "The location of the \"pip\" for this instrument. The decimal position of the pip in this Instrument's price can be found at 10 ^ pipLocation (e.g. -4 pipLocation results in a decimal pip position of 10 ^ -4 = 0.0001)."
+    },
+    "displayPrecision": {
+      "type": "integer",
+      "description": "The number of decimal places that should be used to display prices for this instrument. (e.g. a displayPrecision of 5 would result in a price of \"1\" being displayed as \"1.00000\")"
+    },
+    "tradeUnitsPrecision": {
+      "type": "integer",
+      "description": "The amount of decimal places that may be provided when specifying the number of units traded for this instrument."
+    },
+    "minimumTradeSize": {
+      "type": "string",
+      "description": "The smallest number of units allowed to be traded for this instrument.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "maximumTrailingStopDistance": {
+      "type": "string",
+      "description": "The maximum trailing stop distance allowed for a trailing stop loss created for this instrument. Specified in price units.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "minimumTrailingStopDistance": {
+      "type": "string",
+      "description": "The minimum trailing stop distance allowed for a trailing stop loss created for this instrument. Specified in price units.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "maximumPositionSize": {
+      "type": "string",
+      "description": "The maximum position size allowed for this instrument. Specified in units.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "maximumOrderUnits": {
+      "type": "string",
+      "description": "The maximum units allowed for an Order placed for this instrument. Specified in units.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "marginRate": {
+      "type": "string",
+      "description": "The margin rate for this instrument.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "commission": {
+      "$ref": "#/definitions/InstrumentCommission"
+    }
+  }
+}

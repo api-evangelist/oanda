@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstrumentCommission",
+  "description": "An InstrumentCommission represents an instrument-specific commission",
+  "type": "object",
+  "properties": {
+    "commission": {
+      "type": "string",
+      "description": "The commission amount (in the Account's home currency) charged per unitsTraded of the instrument",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "unitsTraded": {
+      "type": "string",
+      "description": "The number of units traded that the commission amount is based on.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "minimumCommission": {
+      "type": "string",
+      "description": "The minimum commission amount (in the Account's home currency) that is charged when an Order is filled for this instrument.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    }
+  }
+}

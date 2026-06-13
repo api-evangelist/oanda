@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PositionSide",
+  "description": "The representation of a Position for a single direction (long or short).",
+  "type": "object",
+  "properties": {
+    "units": {
+      "type": "string",
+      "description": "Number of units in the position (negative value indicates short position, positive indicates long position).",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "averagePrice": {
+      "type": "string",
+      "description": "Volume-weighted average of the underlying Trade open prices for the Position.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "tradeIDs": {
+      "type": "array",
+      "description": "List of the open Trade IDs which contribute to the open Position.",
+      "items": {
+        "type": "string",
+        "description": "The Trade's identifier, unique within the Trade's Account.",
+        "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+      }
+    },
+    "pl": {
+      "type": "string",
+      "description": "Profit/loss realized by the PositionSide over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "unrealizedPL": {
+      "type": "string",
+      "description": "The unrealized profit/loss of all open Trades that contribute to this PositionSide.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "resettablePL": {
+      "type": "string",
+      "description": "Profit/loss realized by the PositionSide since the Account's resettablePL was last reset by the client.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "financing": {
+      "type": "string",
+      "description": "The total amount of financing paid/collected for this PositionSide over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "guaranteedExecutionFees": {
+      "type": "string",
+      "description": "The total amount of fees charged over the lifetime of the Account for the execution of guaranteed Stop Loss Orders attached to Trades for this PositionSide.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    }
+  }
+}

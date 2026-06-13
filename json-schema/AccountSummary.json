@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AccountSummary",
+  "description": "A summary representation of a client's Account. The AccountSummary does not provide to full specification of pending Orders, open Trades and Positions.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Account's identifier",
+      "format": "\"-\"-delimited string with format \"{siteID}-{divisionID}-{userID}-{accountNumber}\""
+    },
+    "alias": {
+      "type": "string",
+      "description": "Client-assigned alias for the Account. Only provided if the Account has an alias set"
+    },
+    "currency": {
+      "type": "string",
+      "description": "The home currency of the Account",
+      "format": "A string containing an ISO 4217 currency (http://en.wikipedia.org/wiki/ISO_4217)"
+    },
+    "balance": {
+      "type": "string",
+      "description": "The current balance of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "createdByUserID": {
+      "type": "integer",
+      "description": "ID of the user that created the Account."
+    },
+    "createdTime": {
+      "type": "string",
+      "description": "The date/time when the Account was created.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "guaranteedStopLossOrderMode": {
+      "type": "string",
+      "description": "The current guaranteed Stop Loss Order mode of the Account.",
+      "enum": [
+        "DISABLED",
+        "ALLOWED",
+        "REQUIRED"
+      ]
+    },
+    "pl": {
+      "type": "string",
+      "description": "The total profit/loss realized over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "resettablePL": {
+      "type": "string",
+      "description": "The total realized profit/loss for the Account since it was last reset by the client.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "resettablePLTime": {
+      "type": "string",
+      "description": "The date/time that the Account's resettablePL was last reset.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "financing": {
+      "type": "string",
+      "description": "The total amount of financing paid/collected over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "commission": {
+      "type": "string",
+      "description": "The total amount of commission paid over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "guaranteedExecutionFees": {
+      "type": "string",
+      "description": "The total amount of fees charged over the lifetime of the Account for the execution of guaranteed Stop Loss Orders.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginRate": {
+      "type": "string",
+      "description": "Client-provided margin rate override for the Account. The effective margin rate of the Account is the lesser of this value and the OANDA margin rate for the Account's division. This value is only provided if a margin rate override exists for the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "marginCallEnterTime": {
+      "type": "string",
+      "description": "The date/time when the Account entered a margin call state. Only provided if the Account is in a margin call.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "marginCallExtensionCount": {
+      "type": "integer",
+      "description": "The number of times that the Account's current margin call was extended."
+    },
+    "lastMarginCallExtensionTime": {
+      "type": "string",
+      "description": "The date/time of the Account's last margin call extension.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "openTradeCount": {
+      "type": "integer",
+      "description": "The number of Trades currently open in the Account."
+    },
+    "openPositionCount": {
+      "type": "integer",
+      "description": "The number of Positions currently open in the Account."
+    },
+    "pendingOrderCount": {
+      "type": "integer",
+      "description": "The number of Orders currently pending in the Account."
+    },
+    "hedgingEnabled": {
+      "type": "boolean",
+      "description": "Flag indicating that the Account has hedging enabled."
+    },
+    "lastOrderFillTimestamp": {
+      "type": "string",
+      "description": "The date/time of the last order that was filled for this account.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "unrealizedPL": {
+      "type": "string",
+      "description": "The total unrealized profit/loss for all Trades currently open in the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "NAV": {
+      "type": "string",
+      "description": "The net asset value of the Account. Equal to Account balance + unrealizedPL.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginUsed": {
+      "type": "string",
+      "description": "Margin currently used for the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginAvailable": {
+      "type": "string",
+      "description": "Margin available for Account currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "positionValue": {
+      "type": "string",
+      "description": "The value of the Account's open positions represented in the Account's home currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutUnrealizedPL": {
+      "type": "string",
+      "description": "The Account's margin closeout unrealized PL.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutNAV": {
+      "type": "string",
+      "description": "The Account's margin closeout NAV.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutMarginUsed": {
+      "type": "string",
+      "description": "The Account's margin closeout margin used.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCloseoutPercent": {
+      "type": "string",
+      "description": "The Account's margin closeout percentage. When this value is 1.0 or above the Account is in a margin closeout situation.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "marginCloseoutPositionValue": {
+      "type": "string",
+      "description": "The value of the Account's open positions as used for margin closeout calculations represented in the Account's home currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "withdrawalLimit": {
+      "type": "string",
+      "description": "The current WithdrawalLimit for the account which will be zero or a positive value indicating how much can be withdrawn from the account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCallMarginUsed": {
+      "type": "string",
+      "description": "The Account's margin call margin used.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginCallPercent": {
+      "type": "string",
+      "description": "The Account's margin call percentage. When this value is 1.0 or above the Account is in a margin call situation.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "lastTransactionID": {
+      "type": "string",
+      "description": "The ID of the last Transaction created for the Account.",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    }
+  }
+}

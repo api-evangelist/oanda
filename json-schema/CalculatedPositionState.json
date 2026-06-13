@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CalculatedPositionState",
+  "description": "The dynamic (calculated) state of a Position",
+  "type": "object",
+  "properties": {
+    "instrument": {
+      "type": "string",
+      "description": "The Position's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "netUnrealizedPL": {
+      "type": "string",
+      "description": "The Position's net unrealized profit/loss",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "longUnrealizedPL": {
+      "type": "string",
+      "description": "The unrealized profit/loss of the Position's long open Trades",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "shortUnrealizedPL": {
+      "type": "string",
+      "description": "The unrealized profit/loss of the Position's short open Trades",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginUsed": {
+      "type": "string",
+      "description": "Margin currently used by the Position.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    }
+  }
+}

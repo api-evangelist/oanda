@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UnitsAvailable",
+  "description": "Representation of how many units of an Instrument are available to be traded by an Order depending on its postionFill option.",
+  "type": "object",
+  "properties": {
+    "default": {
+      "$ref": "#/definitions/UnitsAvailableDetails"
+    },
+    "reduceFirst": {
+      "$ref": "#/definitions/UnitsAvailableDetails"
+    },
+    "reduceOnly": {
+      "$ref": "#/definitions/UnitsAvailableDetails"
+    },
+    "openOnly": {
+      "$ref": "#/definitions/UnitsAvailableDetails"
+    }
+  }
+}

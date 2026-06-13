@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderRequest",
+  "description": "The base Order specification used when requesting that an Order be created. Each specific Order-type extends this definition.",
+  "type": "object",
+  "properties": {}
+}

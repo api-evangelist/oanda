@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderSpecifier",
+  "description": "The specification of an Order as referred to by clients",
+  "type": "string",
+  "format": "Either the Order's OANDA-assigned OrderID or the Order's client-provided ClientID prefixed by the \"@\" symbol"
+}

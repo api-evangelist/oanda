@@ -1,0 +1,25 @@
+{
+  "operationId": "listOpenPositions",
+  "summary": "Open Positions",
+  "method": "GET",
+  "path": "/accounts/{accountID}/openPositions",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Account's open Positions are provided.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

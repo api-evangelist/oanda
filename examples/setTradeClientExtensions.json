@@ -1,0 +1,29 @@
+{
+  "operationId": "setTradeClientExtensions",
+  "summary": "Set Trade Client Extensions",
+  "method": "PUT",
+  "path": "/accounts/{accountID}/trades/{tradeSpecifier}/clientExtensions",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Trade's Client Extensions have been updated as requested.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The Trade's Client Extensions cannot be modified as requested.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "The Account or Trade specified does not exist.",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

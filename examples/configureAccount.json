@@ -1,0 +1,33 @@
+{
+  "operationId": "configureAccount",
+  "summary": "Configure Account",
+  "method": "PATCH",
+  "path": "/accounts/{accountID}/configuration",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Account was configured successfully.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The configuration specification was invalid.",
+      "schema_ref": ""
+    },
+    "403": {
+      "description": "The configuration operation was forbidden on the Account.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FixedPriceOrder",
+  "description": "A FixedPriceOrder is an order that is filled immediately upon creation using a fixed price.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Order's identifier, unique within the Order's Account.",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "createTime": {
+      "type": "string",
+      "description": "The time when the Order was created.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "state": {
+      "type": "string",
+      "description": "The current state of the Order.",
+      "enum": [
+        "PENDING",
+        "FILLED",
+        "TRIGGERED",
+        "CANCELLED"
+      ]
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the Order. Always set to \"FIXED_PRICE\" for Fixed Price Orders.",
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "MARKET_IF_TOUCHED",
+        "TAKE_PROFIT",
+        "STOP_LOSS",
+        "TRAILING_STOP_LOSS",
+        "FIXED_PRICE"
+      ]
+    },
+    "instrument": {
+      "type": "string",
+      "description": "The Fixed Price Order's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "units": {
+      "type": "string",
+      "description": "The quantity requested to be filled by the Fixed Price Order. A posititive number of units results in a long Order, and a negative number of units results in a short Order.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "price": {
+      "type": "string",
+      "description": "The price specified for the Fixed Price Order. This price is the exact price that the Fixed Price Order will be filled at.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "positionFill": {
+      "type": "string",
+      "description": "Specification of how Positions in the Account are modified when the Order is filled.",
+      "enum": [
+        "OPEN_ONLY",
+        "REDUCE_FIRST",
+        "REDUCE_ONLY",
+        "DEFAULT"
+      ]
+    },
+    "tradeState": {
+      "type": "string",
+      "description": "The state that the trade resulting from the Fixed Price Order should be set to."
+    },
+    "takeProfitOnFill": {
+      "$ref": "#/definitions/TakeProfitDetails"
+    },
+    "stopLossOnFill": {
+      "$ref": "#/definitions/StopLossDetails"
+    },
+    "trailingStopLossOnFill": {
+      "$ref": "#/definitions/TrailingStopLossDetails"
+    },
+    "tradeClientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "fillingTransactionID": {
+      "type": "string",
+      "description": "ID of the Transaction that filled this Order (only provided when the Order's state is FILLED)",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    },
+    "filledTime": {
+      "type": "string",
+      "description": "Date/time when the Order was filled (only provided when the Order's state is FILLED)",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "tradeOpenedID": {
+      "type": "string",
+      "description": "Trade ID of Trade opened when the Order was filled (only provided when the Order's state is FILLED and a Trade was opened as a result of the fill)",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "tradeReducedID": {
+      "type": "string",
+      "description": "Trade ID of Trade reduced when the Order was filled (only provided when the Order's state is FILLED and a Trade was reduced as a result of the fill)",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "tradeClosedIDs": {
+      "type": "array",
+      "description": "Trade IDs of Trades closed when the Order was filled (only provided when the Order's state is FILLED and one or more Trades were closed as a result of the fill)",
+      "items": {
+        "type": "string",
+        "description": "The Trade's identifier, unique within the Trade's Account.",
+        "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+      }
+    },
+    "cancellingTransactionID": {
+      "type": "string",
+      "description": "ID of the Transaction that cancelled the Order (only provided when the Order's state is CANCELLED)",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    },
+    "cancelledTime": {
+      "type": "string",
+      "description": "Date/time when the Order was cancelled (only provided when the state of the Order is CANCELLED)",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "operationId": "closeTrade",
+  "summary": "Close Trade",
+  "method": "PUT",
+  "path": "/accounts/{accountID}/trades/{tradeSpecifier}/close",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The Trade has been closed as requested",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "The Trade cannot be closed as requested.",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "The Account or Trade specified does not exist.",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

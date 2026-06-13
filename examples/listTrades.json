@@ -1,0 +1,25 @@
+{
+  "operationId": "listTrades",
+  "summary": "List Trades",
+  "method": "GET",
+  "path": "/accounts/{accountID}/trades",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The list of Trades requested",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "404": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

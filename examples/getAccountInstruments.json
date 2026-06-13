@@ -1,0 +1,25 @@
+{
+  "operationId": "getAccountInstruments",
+  "summary": "Account Instruments",
+  "method": "GET",
+  "path": "/accounts/{accountID}/instruments",
+  "parameters": {},
+  "responses": {
+    "200": {
+      "description": "The list of tradeable instruments for the Account has been provided.",
+      "schema_ref": ""
+    },
+    "400": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "401": {
+      "description": "",
+      "schema_ref": ""
+    },
+    "405": {
+      "description": "",
+      "schema_ref": ""
+    }
+  }
+}

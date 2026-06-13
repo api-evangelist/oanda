@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Candlestick",
+  "description": "The Candlestick representation",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "string",
+      "description": "The start time of the candlestick",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "bid": {
+      "$ref": "#/definitions/CandlestickData"
+    },
+    "ask": {
+      "$ref": "#/definitions/CandlestickData"
+    },
+    "mid": {
+      "$ref": "#/definitions/CandlestickData"
+    },
+    "volume": {
+      "type": "integer",
+      "description": "The number of prices created during the time-range represented by the candlestick."
+    },
+    "complete": {
+      "type": "boolean",
+      "description": "A flag indicating if the candlestick is complete. A complete candlestick is one whose ending time is not in the future."
+    }
+  }
+}

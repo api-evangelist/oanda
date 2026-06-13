@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DecimalNumber",
+  "description": "The string representation of a decimal number.",
+  "type": "string",
+  "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+}

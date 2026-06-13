@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Trade",
+  "description": "The specification of a Trade within an Account. This includes the full representation of the Trade's dependent Orders in addition to the IDs of those Orders.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Trade's identifier, unique within the Trade's Account.",
+      "format": "The string representation of the OANDA-assigned TradeID. OANDA-assigned TradeIDs are positive integers, and are derived from the TransactionID of the Transaction that opened the Trade."
+    },
+    "instrument": {
+      "type": "string",
+      "description": "The Trade's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "price": {
+      "type": "string",
+      "description": "The execution price of the Trade.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "openTime": {
+      "type": "string",
+      "description": "The date/time when the Trade was opened.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "state": {
+      "type": "string",
+      "description": "The current state of the Trade.",
+      "enum": [
+        "OPEN",
+        "CLOSED",
+        "CLOSE_WHEN_TRADEABLE"
+      ]
+    },
+    "initialUnits": {
+      "type": "string",
+      "description": "The initial size of the Trade. Negative values indicate a short Trade, and positive values indicate a long Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "initialMarginRequired": {
+      "type": "string",
+      "description": "The margin required at the time the Trade was created. Note, this is the 'pure' margin required, it is not the 'effective' margin used that factors in the trade risk if a GSLO is attached to the trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "currentUnits": {
+      "type": "string",
+      "description": "The number of units currently open for the Trade. This value is reduced to 0.0 as the Trade is closed.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "realizedPL": {
+      "type": "string",
+      "description": "The total profit/loss realized on the closed portion of the Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "unrealizedPL": {
+      "type": "string",
+      "description": "The unrealized profit/loss on the open portion of the Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginUsed": {
+      "type": "string",
+      "description": "Margin currently used by the Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "averageClosePrice": {
+      "type": "string",
+      "description": "The average closing price of the Trade. Only present if the Trade has been closed or reduced at least once.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "closingTransactionIDs": {
+      "type": "array",
+      "description": "The IDs of the Transactions that have closed portions of this Trade.",
+      "items": {
+        "type": "string",
+        "description": "The unique Transaction identifier within each Account.",
+        "format": "String representation of the numerical OANDA-assigned TransactionID"
+      }
+    },
+    "financing": {
+      "type": "string",
+      "description": "The financing paid/collected for this Trade.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "closeTime": {
+      "type": "string",
+      "description": "The date/time when the Trade was fully closed. Only provided for Trades whose state is CLOSED.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "takeProfitOrder": {
+      "$ref": "#/definitions/TakeProfitOrder"
+    },
+    "stopLossOrder": {
+      "$ref": "#/definitions/StopLossOrder"
+    },
+    "trailingStopLossOrder": {
+      "$ref": "#/definitions/TrailingStopLossOrder"
+    }
+  }
+}

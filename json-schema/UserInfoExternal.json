@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserInfoExternal",
+  "description": "A representation of user information, as available to external (3rd party) clients.",
+  "type": "object",
+  "properties": {
+    "userID": {
+      "type": "integer",
+      "description": "The user's OANDA-assigned user ID."
+    },
+    "country": {
+      "type": "string",
+      "description": "The country that the user is based in."
+    },
+    "FIFO": {
+      "type": "boolean",
+      "description": "Flag indicating if the the user's Accounts adhere to FIFO execution rules."
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Position",
+  "description": "The specification of a Position within an Account.",
+  "type": "object",
+  "properties": {
+    "instrument": {
+      "type": "string",
+      "description": "The Position's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "pl": {
+      "type": "string",
+      "description": "Profit/loss realized by the Position over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "unrealizedPL": {
+      "type": "string",
+      "description": "The unrealized profit/loss of all open Trades that contribute to this Position.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "marginUsed": {
+      "type": "string",
+      "description": "Margin currently used by the Position.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "resettablePL": {
+      "type": "string",
+      "description": "Profit/loss realized by the Position since the Account's resettablePL was last reset by the client.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "financing": {
+      "type": "string",
+      "description": "The total amount of financing paid/collected for this instrument over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "commission": {
+      "type": "string",
+      "description": "The total amount of commission paid for this instrument over the lifetime of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "guaranteedExecutionFees": {
+      "type": "string",
+      "description": "The total amount of fees charged over the lifetime of the Account for the execution of guaranteed Stop Loss Orders for this instrument.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "long": {
+      "$ref": "#/definitions/PositionSide"
+    },
+    "short": {
+      "$ref": "#/definitions/PositionSide"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FixedPriceOrderReason",
+  "description": "The reason that the Fixed Price Order was created",
+  "type": "string",
+  "enum": [
+    "PLATFORM_ACCOUNT_MIGRATION"
+  ]
+}

@@ -1,0 +1,944 @@
+{
+  "name": "OANDA v20 REST API Vocabulary",
+  "description": "Controlled vocabulary of types, models, and categories from the OANDA v20 REST API",
+  "version": "3.0.25",
+  "terms": [
+    {
+      "term": "CandlestickGranularity",
+      "description": "The granularity of a candlestick",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "WeeklyAlignment",
+      "description": "The day of the week to use for candlestick granularities with weekly alignment.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "Candlestick",
+      "description": "The Candlestick representation",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "CandlestickData",
+      "description": "The price data (open, high, low, close) for the Candlestick representation.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderBook",
+      "description": "The representation of an instrument's order book at a point in time",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderBookBucket",
+      "description": "The order book data for a partition of the instrument's prices.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PositionBook",
+      "description": "The representation of an instrument's position book at a point in time",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PositionBookBucket",
+      "description": "The position book data for a partition of the instrument's prices.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "Position",
+      "description": "The specification of a Position within an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PositionSide",
+      "description": "The representation of a Position for a single direction (long or short).",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "CalculatedPositionState",
+      "description": "The dynamic (calculated) state of a Position",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeID",
+      "description": "The Trade's identifier, unique within the Trade's Account.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeState",
+      "description": "The current state of the Trade.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeStateFilter",
+      "description": "The state to filter the Trades by",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeSpecifier",
+      "description": "The identification of a Trade as referred to by clients",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "Trade",
+      "description": "The specification of a Trade within an Account. This includes the full representation of the Trade's dependent Orders in addition to the IDs of those Orders.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeSummary",
+      "description": "The summary of a Trade within an Account. This representation does not provide the full details of the Trade's dependent Orders.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "CalculatedTradeState",
+      "description": "The dynamic (calculated) state of an open Trade",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradePL",
+      "description": "The classification of TradePLs.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "StatementYear",
+      "description": "The year that a Yearly Account Statement is generated for.",
+      "type": "integer",
+      "source": "definitions"
+    },
+    {
+      "term": "MT4TransactionHeartbeat",
+      "description": "A TransactionHeartbeat object is injected into the Transaction stream to ensure that the HTTP connection remains active.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "DecimalNumber",
+      "description": "The string representation of a decimal number.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountUnits",
+      "description": "The string representation of a quantity of an Account's home currency.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "Currency",
+      "description": "Currency name identifier. Used by clients to refer to currencies.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "InstrumentName",
+      "description": "Instrument name identifier. Used by clients to refer to an Instrument.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "InstrumentType",
+      "description": "The type of an Instrument.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "Instrument",
+      "description": "Full specification of an Instrument.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "DateTime",
+      "description": "A date and time value using either RFC3339 or UNIX time representation.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "AcceptDatetimeFormat",
+      "description": "DateTime header",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "InstrumentCommission",
+      "description": "An InstrumentCommission represents an instrument-specific commission",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "GuaranteedStopLossOrderLevelRestriction",
+      "description": "A GuaranteedStopLossOrderLevelRestriction represents the total position size that can exist within a given price window for Trades with guaranteed Stop Loss Orders attached for a specific Instrument.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "Direction",
+      "description": "In the context of an Order or a Trade, defines whether the units are positive or negative.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountID",
+      "description": "The string representation of an Account Identifier.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "Account",
+      "description": "The full details of a client's Account. This includes full open Trade, open Position and pending Order representation.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountChangesState",
+      "description": "An AccountState Object is used to represent an Account's current price-dependent state. Price-dependent Account state is dependent on OANDA's current Prices, and includes things like unrealized PL, NAV and Trailing Stop Loss Order state.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountProperties",
+      "description": "Properties related to an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "GuaranteedStopLossOrderMode",
+      "description": "The overall behaviour of the Account regarding guaranteed Stop Loss Orders.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountSummary",
+      "description": "A summary representation of a client's Account. The AccountSummary does not provide to full specification of pending Orders, open Trades and Positions.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "CalculatedAccountState",
+      "description": "The dynamically calculated state of a client's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountChanges",
+      "description": "An AccountChanges Object is used to represent the changes to an Account's Orders, Trades and Positions since a specified Account TransactionID in the past.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "AccountFinancingMode",
+      "description": "The financing mode of an Account",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "PositionAggregationMode",
+      "description": "The way that position values for an Account are calculated and aggregated.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TransactionID",
+      "description": "The unique Transaction identifier within each Account.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TransactionType",
+      "description": "The possible types of a Transaction",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "Transaction",
+      "description": "The base Transaction specification. Specifies properties that are common between all Transaction.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "CreateTransaction",
+      "description": "A CreateTransaction represents the creation of an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "CloseTransaction",
+      "description": "A CloseTransaction represents the closing of an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "ReopenTransaction",
+      "description": "A ReopenTransaction represents the re-opening of a closed Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientConfigureTransaction",
+      "description": "A ClientConfigureTransaction represents the configuration of an Account by a client.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientConfigureRejectTransaction",
+      "description": "A ClientConfigureRejectTransaction represents the reject of configuration of an Account by a client.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "FundingReason",
+      "description": "The reason that an Account is being funded.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TransferFundsTransaction",
+      "description": "A TransferFundsTransaction represents the transfer of funds in/out of an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TransferFundsRejectTransaction",
+      "description": "A TransferFundsRejectTransaction represents the rejection of the transfer of funds in/out of an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderReason",
+      "description": "The reason that the Market Order was created",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "FixedPriceOrderReason",
+      "description": "The reason that the Fixed Price Order was created",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderTransaction",
+      "description": "A MarketOrderTransaction represents the creation of a Market Order in the user's account. A Market Order is an Order that is filled immediately at the current market price.\nMarket Orders can be specialized when they are created to accomplish a specific task: to close a Trade, to closeout a Position or to particiate in in a Margin closeout.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderRejectTransaction",
+      "description": "A MarketOrderRejectTransaction represents the rejection of the creation of a Market Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "FixedPriceOrderTransaction",
+      "description": "A FixedPriceOrderTransaction represents the creation of a Fixed Price Order in the user's account. A Fixed Price Order is an Order that is filled immediately at a specified price.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "LimitOrderReason",
+      "description": "The reason that the Limit Order was initiated",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "LimitOrderTransaction",
+      "description": "A LimitOrderTransaction represents the creation of a Limit Order in the user's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "LimitOrderRejectTransaction",
+      "description": "A LimitOrderRejectTransaction represents the rejection of the creation of a Limit Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopOrderReason",
+      "description": "The reason that the Stop Order was initiated",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "StopOrderTransaction",
+      "description": "A StopOrderTransaction represents the creation of a Stop Order in the user's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopOrderRejectTransaction",
+      "description": "A StopOrderRejectTransaction represents the rejection of the creation of a Stop Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketIfTouchedOrderReason",
+      "description": "The reason that the Market-if-touched Order was initiated",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketIfTouchedOrderTransaction",
+      "description": "A MarketIfTouchedOrderTransaction represents the creation of a MarketIfTouched Order in the user's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketIfTouchedOrderRejectTransaction",
+      "description": "A MarketIfTouchedOrderRejectTransaction represents the rejection of the creation of a MarketIfTouched Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TakeProfitOrderReason",
+      "description": "The reason that the Take Profit Order was initiated",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TakeProfitOrderTransaction",
+      "description": "A TakeProfitOrderTransaction represents the creation of a TakeProfit Order in the user's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TakeProfitOrderRejectTransaction",
+      "description": "A TakeProfitOrderRejectTransaction represents the rejection of the creation of a TakeProfit Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopLossOrderReason",
+      "description": "The reason that the Stop Loss Order was initiated",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "StopLossOrderTransaction",
+      "description": "A StopLossOrderTransaction represents the creation of a StopLoss Order in the user's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopLossOrderRejectTransaction",
+      "description": "A StopLossOrderRejectTransaction represents the rejection of the creation of a StopLoss Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TrailingStopLossOrderReason",
+      "description": "The reason that the Trailing Stop Loss Order was initiated",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TrailingStopLossOrderTransaction",
+      "description": "A TrailingStopLossOrderTransaction represents the creation of a TrailingStopLoss Order in the user's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TrailingStopLossOrderRejectTransaction",
+      "description": "A TrailingStopLossOrderRejectTransaction represents the rejection of the creation of a TrailingStopLoss Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderFillReason",
+      "description": "The reason that an Order was filled",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderFillTransaction",
+      "description": "An OrderFillTransaction represents the filling of an Order in the client's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderCancelReason",
+      "description": "The reason that an Order was cancelled.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderCancelTransaction",
+      "description": "An OrderCancelTransaction represents the cancellation of an Order in the client's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderCancelRejectTransaction",
+      "description": "An OrderCancelRejectTransaction represents the rejection of the cancellation of an Order in the client's Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderClientExtensionsModifyTransaction",
+      "description": "A OrderClientExtensionsModifyTransaction represents the modification of an Order's Client Extensions.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderClientExtensionsModifyRejectTransaction",
+      "description": "A OrderClientExtensionsModifyRejectTransaction represents the rejection of the modification of an Order's Client Extensions.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeClientExtensionsModifyTransaction",
+      "description": "A TradeClientExtensionsModifyTransaction represents the modification of a Trade's Client Extensions.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeClientExtensionsModifyRejectTransaction",
+      "description": "A TradeClientExtensionsModifyRejectTransaction represents the rejection of the modification of a Trade's Client Extensions.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarginCallEnterTransaction",
+      "description": "A MarginCallEnterTransaction is created when an Account enters the margin call state.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarginCallExtendTransaction",
+      "description": "A MarginCallExtendTransaction is created when the margin call state for an Account has been extended.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarginCallExitTransaction",
+      "description": "A MarginCallExitnterTransaction is created when an Account leaves the margin call state.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "DelayedTradeClosureTransaction",
+      "description": "A DelayedTradeClosure Transaction is created administratively to indicate open trades that should have been closed but weren't because the open trades' instruments were untradeable at the time. Open trades listed in this transaction will be closed once their respective instruments become tradeable.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "DailyFinancingTransaction",
+      "description": "A DailyFinancingTransaction represents the daily payment/collection of financing for an Account.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "ResetResettablePLTransaction",
+      "description": "A ResetResettablePLTransaction represents the resetting of the Account's resettable PL counters.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientID",
+      "description": "A client-provided identifier, used by clients to refer to their Orders or Trades with an identifier that they have provided.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientTag",
+      "description": "A client-provided tag that can contain any data and may be assigned to their Orders or Trades. Tags are typically used to associate groups of Trades and/or Orders together.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientComment",
+      "description": "A client-provided comment that can contain any data and may be assigned to their Orders or Trades. Comments are typically used to provide extra context or meaning to an Order or Trade.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientExtensions",
+      "description": "A ClientExtensions object allows a client to attach a clientID, tag and comment to Orders and Trades in their Account.  Do not set, modify, or delete this field if your account is associated with MT4.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TakeProfitDetails",
+      "description": "TakeProfitDetails specifies the details of a Take Profit Order to be created on behalf of a client. This may happen when an Order is filled that opens a Trade requiring a Take Profit, or when a Trade's dependent Take Profit Order is modified directly through the Trade.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopLossDetails",
+      "description": "StopLossDetails specifies the details of a Stop Loss Order to be created on behalf of a client. This may happen when an Order is filled that opens a Trade requiring a Stop Loss, or when a Trade's dependent Stop Loss Order is modified directly through the Trade.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TrailingStopLossDetails",
+      "description": "TrailingStopLossDetails specifies the details of a Trailing Stop Loss Order to be created on behalf of a client. This may happen when an Order is filled that opens a Trade requiring a Trailing Stop Loss, or when a Trade's dependent Trailing Stop Loss Order is modified directly through the Trade.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeOpen",
+      "description": "A TradeOpen object represents a Trade for an instrument that was opened in an Account. It is found embedded in Transactions that affect the position of an instrument in the Account, specifically the OrderFill Transaction.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TradeReduce",
+      "description": "A TradeReduce object represents a Trade for an instrument that was reduced (either partially or fully) in an Account. It is found embedded in Transactions that affect the position of an instrument in the account, specifically the OrderFill Transaction.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderTradeClose",
+      "description": "A MarketOrderTradeClose specifies the extensions to a Market Order that has been created specifically to close a Trade.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderMarginCloseout",
+      "description": "Details for the Market Order extensions specific to a Market Order placed that is part of a Market Order Margin Closeout in a client's account",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderMarginCloseoutReason",
+      "description": "The reason that the Market Order was created to perform a margin closeout",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderDelayedTradeClose",
+      "description": "Details for the Market Order extensions specific to a Market Order placed with the intent of fully closing a specific open trade that should have already been closed but wasn't due to halted market conditions",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderPositionCloseout",
+      "description": "A MarketOrderPositionCloseout specifies the extensions to a Market Order when it has been created to closeout a specific Position.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "LiquidityRegenerationSchedule",
+      "description": "A LiquidityRegenerationSchedule indicates how liquidity that is used when filling an Order for an instrument is regenerated following the fill.  A liquidity regeneration schedule will be in effect until the timestamp of its final step, but may be replaced by a schedule created for an Order of the same instrument that is filled while it is still in effect.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "LiquidityRegenerationScheduleStep",
+      "description": "A liquidity regeneration schedule Step indicates the amount of bid and ask liquidity that is used by the Account at a certain time. These amounts will only change at the timestamp of the following step.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OpenTradeFinancing",
+      "description": "OpenTradeFinancing is used to pay/collect daily financing charge for an open Trade within an Account",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PositionFinancing",
+      "description": "OpenTradeFinancing is used to pay/collect daily financing charge for a Position within an Account",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "RequestID",
+      "description": "The request identifier.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientRequestID",
+      "description": "A client provided request identifier.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TransactionRejectReason",
+      "description": "The reason that a Transaction was rejected.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TransactionFilter",
+      "description": "A filter that can be used when fetching Transactions",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TransactionHeartbeat",
+      "description": "A TransactionHeartbeat object is injected into the Transaction stream to ensure that the HTTP connection remains active.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "UserSpecifier",
+      "description": "The specifier that refers to a User",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "UserInfo",
+      "description": "A representation of user information, as provided to the user themself.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "UserInfoExternal",
+      "description": "A representation of user information, as available to external (3rd party) clients.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "ClientPrice",
+      "description": "The specification of an Account-specific Price.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PriceStatus",
+      "description": "The status of the Price.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "QuoteHomeConversionFactors",
+      "description": "QuoteHomeConversionFactors represents the factors that can be used used to convert quantities of a Price's Instrument's quote currency into the Account's home currency.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "HomeConversions",
+      "description": "HomeConversions represents the factors to use to convert quantities of a given currency into the Account's home currency. The conversion factor depends on the scenario the conversion is required for.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PricingHeartbeat",
+      "description": "A PricingHeartbeat object is injected into the Pricing stream to ensure that the HTTP connection remains active.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderID",
+      "description": "The Order's identifier, unique within the Order's Account.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderType",
+      "description": "The type of the Order.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "CancellableOrderType",
+      "description": "The type of the Order.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderState",
+      "description": "The current state of the Order.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderStateFilter",
+      "description": "The state to filter the requested Orders by.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderIdentifier",
+      "description": "An OrderIdentifier is used to refer to an Order, and contains both the OrderID and the ClientOrderID.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderSpecifier",
+      "description": "The specification of an Order as referred to by clients",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "TimeInForce",
+      "description": "The time-in-force of an Order. TimeInForce describes how long an Order should remain pending before being automatically cancelled by the execution system.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderPositionFill",
+      "description": "Specification of how Positions in the Account are modified when the Order is filled.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderTriggerCondition",
+      "description": "Specification of which price component should be used when determining if an Order should be triggered and filled. This allows Orders to be triggered based on the bid, ask, mid, default (ask for buy, bid for sell) or inverse (ask for sell, bid for buy) price depending on the desired behaviour. Orders are always filled using their default price component.\nThis feature is only provided through the REST API. Clients who choose to specify a non-default trigger condition will not see it reflected in any of OANDA's proprietary or partner trading platforms, their transaction history or their account statements. OANDA platforms always assume that an Order's trigger condition is set to the default value when indicating the distance from an Order's trigger price, and will always provide the default trigger condition when creating or modifying an Order.\nA special restriction applies when creating a guaranteed Stop Loss Order. In this case the TriggerCondition value must either be \"DEFAULT\", or the \"natural\" trigger side \"DEFAULT\" results in. So for a Stop Loss Order for a long trade valid values are \"DEFAULT\" and \"BID\", and for short trades \"DEFAULT\" and \"ASK\" are valid.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "DynamicOrderState",
+      "description": "The dynamic state of an Order. This is only relevant to TrailingStopLoss Orders, as no other Order type has dynamic state.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "Order",
+      "description": "The base Order definition specifies the properties that are common to all Orders.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrder",
+      "description": "A MarketOrder is an order that is filled immediately upon creation using the current market price.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "FixedPriceOrder",
+      "description": "A FixedPriceOrder is an order that is filled immediately upon creation using a fixed price.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "LimitOrder",
+      "description": "A LimitOrder is an order that is created with a price threshold, and will only be filled by a price that is equal to or better than the threshold.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopOrder",
+      "description": "A StopOrder is an order that is created with a price threshold, and will only be filled by a price that is equal to or worse than the threshold.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketIfTouchedOrder",
+      "description": "A MarketIfTouchedOrder is an order that is created with a price threshold, and will only be filled by a market price that is touches or crosses the threshold.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TakeProfitOrder",
+      "description": "A TakeProfitOrder is an order that is linked to an open Trade and created with a price threshold. The Order will be filled (closing the Trade) by the first price that is equal to or better than the threshold. A TakeProfitOrder cannot be used to open a new Position.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopLossOrder",
+      "description": "A StopLossOrder is an order that is linked to an open Trade and created with a price threshold. The Order will be filled (closing the Trade) by the first price that is equal to or worse than the threshold. A StopLossOrder cannot be used to open a new Position.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TrailingStopLossOrder",
+      "description": "A TrailingStopLossOrder is an order that is linked to an open Trade and created with a price distance. The price distance is used to calculate a trailing stop value for the order that is in the losing direction from the market price at the time of the order's creation. The trailing stop value will follow the market price as it moves in the winning direction, and the order will filled (closing the Trade) by the first price that is equal to or worse than the trailing stop value. A TrailingStopLossOrder cannot be used to open a new Position.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "OrderRequest",
+      "description": "The base Order specification used when requesting that an Order be created. Each specific Order-type extends this definition.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketOrderRequest",
+      "description": "A MarketOrderRequest specifies the parameters that may be set when creating a Market Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "LimitOrderRequest",
+      "description": "A LimitOrderRequest specifies the parameters that may be set when creating a Limit Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopOrderRequest",
+      "description": "A StopOrderRequest specifies the parameters that may be set when creating a Stop Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "MarketIfTouchedOrderRequest",
+      "description": "A MarketIfTouchedOrderRequest specifies the parameters that may be set when creating a Market-if-Touched Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TakeProfitOrderRequest",
+      "description": "A TakeProfitOrderRequest specifies the parameters that may be set when creating a Take Profit Order. Only one of the price and distance fields may be specified.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "StopLossOrderRequest",
+      "description": "A StopLossOrderRequest specifies the parameters that may be set when creating a Stop Loss Order. Only one of the price and distance fields may be specified.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "TrailingStopLossOrderRequest",
+      "description": "A TrailingStopLossOrderRequest specifies the parameters that may be set when creating a Trailing Stop Loss Order.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "UnitsAvailableDetails",
+      "description": "Representation of many units of an Instrument are available to be traded for both long and short Orders.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "UnitsAvailable",
+      "description": "Representation of how many units of an Instrument are available to be traded by an Order depending on its postionFill option.",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "GuaranteedStopLossOrderEntryData",
+      "description": "Details required by clients creating a Guaranteed Stop Loss Order",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "PriceValue",
+      "description": "The string representation of a Price for a Bucket.",
+      "type": "string",
+      "source": "definitions"
+    },
+    {
+      "term": "PriceBucket",
+      "description": "A Price Bucket represents a price available for an amount of liquidity",
+      "type": "object",
+      "source": "definitions"
+    },
+    {
+      "term": "Price",
+      "description": "The Price representation",
+      "type": "object",
+      "source": "definitions"
+    }
+  ],
+  "categories": []
+}

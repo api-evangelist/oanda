@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderFillTransaction",
+  "description": "An OrderFillTransaction represents the filling of an Order in the client's Account.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Transaction's Identifier.",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    },
+    "time": {
+      "type": "string",
+      "description": "The date/time when the Transaction was created.",
+      "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
+    },
+    "userID": {
+      "type": "integer",
+      "description": "The ID of the user that initiated the creation of the Transaction."
+    },
+    "accountID": {
+      "type": "string",
+      "description": "The ID of the Account the Transaction was created for.",
+      "format": "\"-\"-delimited string with format \"{siteID}-{divisionID}-{userID}-{accountNumber}\""
+    },
+    "batchID": {
+      "type": "string",
+      "description": "The ID of the \"batch\" that the Transaction belongs to. Transactions in the same batch are applied to the Account simultaneously.",
+      "format": "String representation of the numerical OANDA-assigned TransactionID"
+    },
+    "requestID": {
+      "type": "string",
+      "description": "The Request ID of the request which generated the transaction."
+    },
+    "type": {
+      "type": "string",
+      "description": "The Type of the Transaction. Always set to \"ORDER_FILL\" for an OrderFillTransaction.",
+      "enum": [
+        "CREATE",
+        "CLOSE",
+        "REOPEN",
+        "CLIENT_CONFIGURE",
+        "CLIENT_CONFIGURE_REJECT",
+        "TRANSFER_FUNDS",
+        "TRANSFER_FUNDS_REJECT",
+        "MARKET_ORDER",
+        "MARKET_ORDER_REJECT",
+        "FIXED_PRICE_ORDER",
+        "LIMIT_ORDER",
+        "LIMIT_ORDER_REJECT",
+        "STOP_ORDER",
+        "STOP_ORDER_REJECT",
+        "MARKET_IF_TOUCHED_ORDER",
+        "MARKET_IF_TOUCHED_ORDER_REJECT",
+        "TAKE_PROFIT_ORDER",
+        "TAKE_PROFIT_ORDER_REJECT",
+        "STOP_LOSS_ORDER",
+        "STOP_LOSS_ORDER_REJECT",
+        "TRAILING_STOP_LOSS_ORDER",
+        "TRAILING_STOP_LOSS_ORDER_REJECT",
+        "ORDER_FILL",
+        "ORDER_CANCEL",
+        "ORDER_CANCEL_REJECT",
+        "ORDER_CLIENT_EXTENSIONS_MODIFY",
+        "ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT",
+        "TRADE_CLIENT_EXTENSIONS_MODIFY",
+        "TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT",
+        "MARGIN_CALL_ENTER",
+        "MARGIN_CALL_EXTEND",
+        "MARGIN_CALL_EXIT",
+        "DELAYED_TRADE_CLOSURE",
+        "DAILY_FINANCING",
+        "RESET_RESETTABLE_PL"
+      ]
+    },
+    "orderID": {
+      "type": "string",
+      "description": "The ID of the Order filled.",
+      "format": "The string representation of the OANDA-assigned OrderID. OANDA-assigned OrderIDs are positive integers, and are derived from the TransactionID of the Transaction that created the Order."
+    },
+    "clientOrderID": {
+      "type": "string",
+      "description": "The client Order ID of the Order filled (only provided if the client has assigned one)."
+    },
+    "instrument": {
+      "type": "string",
+      "description": "The name of the filled Order's instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "units": {
+      "type": "string",
+      "description": "The number of units filled by the OrderFill.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "gainQuoteHomeConversionFactor": {
+      "type": "string",
+      "description": "This is the conversion factor in effect for the Account at the time of the OrderFill for converting any gains realized in Instrument quote units into units of the Account's home currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "lossQuoteHomeConversionFactor": {
+      "type": "string",
+      "description": "This is the conversion factor in effect for the Account at the time of the OrderFill for converting any losses realized in Instrument quote units into units of the Account's home currency.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "price": {
+      "type": "string",
+      "description": "This field is now deprecated and should no longer be used. The individual tradesClosed, tradeReduced and tradeOpened fields contain the exact/official price each unit was filled at.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "fullVWAP": {
+      "type": "string",
+      "description": "The price that all of the units of the OrderFill should have been filled at, in the absence of guaranteed price execution. This factors in the Account's current ClientPrice, used liquidity and the units of the OrderFill only. If no Trades were closed with their price clamped for guaranteed stop loss enforcement, then this value will match the price fields of each Trade opened, closed, and reduced, and they will all be the exact same.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "fullPrice": {
+      "$ref": "#/definitions/ClientPrice"
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason that an Order was filled",
+      "enum": [
+        "LIMIT_ORDER",
+        "STOP_ORDER",
+        "MARKET_IF_TOUCHED_ORDER",
+        "TAKE_PROFIT_ORDER",
+        "STOP_LOSS_ORDER",
+        "TRAILING_STOP_LOSS_ORDER",
+        "MARKET_ORDER",
+        "MARKET_ORDER_TRADE_CLOSE",
+        "MARKET_ORDER_POSITION_CLOSEOUT",
+        "MARKET_ORDER_MARGIN_CLOSEOUT",
+        "MARKET_ORDER_DELAYED_TRADE_CLOSE"
+      ]
+    },
+    "pl": {
+      "type": "string",
+      "description": "The profit or loss incurred when the Order was filled.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "financing": {
+      "type": "string",
+      "description": "The financing paid or collected when the Order was filled.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "commission": {
+      "type": "string",
+      "description": "The commission charged in the Account's home currency as a result of filling the Order. The commission is always represented as a positive quantity of the Account's home currency, however it reduces the balance in the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "guaranteedExecutionFee": {
+      "type": "string",
+      "description": "The total guaranteed execution fees charged for all Trades opened, closed or reduced with guaranteed Stop Loss Orders.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "accountBalance": {
+      "type": "string",
+      "description": "The Account's balance after the Order was filled.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    },
+    "tradeOpened": {
+      "$ref": "#/definitions/TradeOpen"
+    },
+    "tradesClosed": {
+      "type": "array",
+      "description": "The Trades that were closed when the Order was filled (only provided if filling the Order resulted in a closing open Trades).",
+      "items": {
+        "$ref": "#/definitions/TradeReduce"
+      }
+    },
+    "tradeReduced": {
+      "$ref": "#/definitions/TradeReduce"
+    },
+    "halfSpreadCost": {
+      "type": "string",
+      "description": "The half spread cost for the OrderFill, which is the sum of the halfSpreadCost values in the tradeOpened, tradesClosed and tradeReduced fields. This can be a positive or negative value and is represented in the home currency of the Account.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on the Account's home currency."
+    }
+  }
+}

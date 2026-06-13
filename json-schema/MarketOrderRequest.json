@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MarketOrderRequest",
+  "description": "A MarketOrderRequest specifies the parameters that may be set when creating a Market Order.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of the Order to Create. Must be set to \"MARKET\" when creating a Market Order.",
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "MARKET_IF_TOUCHED",
+        "TAKE_PROFIT",
+        "STOP_LOSS",
+        "TRAILING_STOP_LOSS",
+        "FIXED_PRICE"
+      ]
+    },
+    "instrument": {
+      "type": "string",
+      "description": "The Market Order's Instrument.",
+      "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+    },
+    "units": {
+      "type": "string",
+      "description": "The quantity requested to be filled by the Market Order. A posititive number of units results in a long Order, and a negative number of units results in a short Order.",
+      "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+    },
+    "timeInForce": {
+      "type": "string",
+      "description": "The time-in-force requested for the Market Order. Restricted to FOK or IOC for a MarketOrder.",
+      "enum": [
+        "GTC",
+        "GTD",
+        "GFD",
+        "FOK",
+        "IOC"
+      ]
+    },
+    "priceBound": {
+      "type": "string",
+      "description": "The worst price that the client is willing to have the Market Order filled at.",
+      "format": "A decimal number encodes as a string. The amount of precision provided depends on the Instrument."
+    },
+    "positionFill": {
+      "type": "string",
+      "description": "Specification of how Positions in the Account are modified when the Order is filled.",
+      "enum": [
+        "OPEN_ONLY",
+        "REDUCE_FIRST",
+        "REDUCE_ONLY",
+        "DEFAULT"
+      ]
+    },
+    "clientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    },
+    "takeProfitOnFill": {
+      "$ref": "#/definitions/TakeProfitDetails"
+    },
+    "stopLossOnFill": {
+      "$ref": "#/definitions/StopLossDetails"
+    },
+    "trailingStopLossOnFill": {
+      "$ref": "#/definitions/TrailingStopLossDetails"
+    },
+    "tradeClientExtensions": {
+      "$ref": "#/definitions/ClientExtensions"
+    }
+  }
+}
