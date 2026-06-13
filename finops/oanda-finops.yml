@@ -1,0 +1,103 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: OANDA
+providerId: oanda
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Forex
+  - FX Data
+  - Trading
+description: >-
+  FOCUS-aligned FinOps for OANDA APIs. Trading API costs arise through spreads and
+  commissions on executed trades rather than API call fees. Exchange Rates Data API
+  costs are subscription-based with annual or monthly billing.
+sources:
+  - https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/api-plans/
+  - https://developer.oanda.com/rest-live-v20/introduction/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: OANDA Corporation
+serviceCategory: Financial Services
+billingModel:
+  pricingCategory: Spread/Commission + Subscription
+  billingFrequency: Trade Settlement + Monthly/Annual Subscription
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Subscription
+    - Financing
+focusColumns:
+  ServiceName: OANDA
+  ServiceCategory: Financial Services
+  ProviderName: OANDA
+  PublisherName: OANDA Corporation
+  InvoiceIssuerName: OANDA Corporation
+  BillingCurrency: USD
+meters:
+  - name: forex_trades
+    unit: trade
+    aggregation: count
+    dimensions:
+      - instrument
+      - account_type
+      - direction
+    description: Number of executed forex or CFD trades (cost realised as bid/ask spread).
+  - name: trade_volume
+    unit: units
+    aggregation: sum
+    dimensions:
+      - instrument
+      - account_type
+    description: Notional volume of executed trades in base currency units.
+  - name: financing_charges
+    unit: USD
+    aggregation: sum
+    dimensions:
+      - instrument
+      - direction
+    description: Overnight financing/swap charges on positions held past daily cutoff.
+  - name: exchange_rates_api_quotes
+    unit: quote
+    aggregation: sum
+    dimensions:
+      - plan
+      - currency_pair
+    description: API quote calls against the Exchange Rates Data API monthly allowance.
+  - name: exchange_rates_subscription
+    unit: month
+    aggregation: sum
+    dimensions:
+      - plan
+    description: Monthly or annual Exchange Rates Data API subscription fee.
+principles:
+  - name: Visibility
+    description: >-
+      Use the Transaction API (GET /v3/accounts/{accountID}/transactions) and account
+      statements to track realised P&L, spreads paid, commissions, and financing charges
+      at the trade level.
+  - name: Allocation
+    description: >-
+      Tag trades and orders with client extensions (clientID, clientTag, clientComment)
+      available in the v20 API to enable chargeback and cost allocation by team, strategy,
+      or business unit.
+  - name: Optimization
+    description: >-
+      Monitor spread costs by instrument and session to trade during highest-liquidity
+      windows. For the Exchange Rates API, right-size the plan tier to actual monthly quote
+      consumption to avoid overpaying for unused capacity.
+  - name: Accountability
+    description: >-
+      Reconcile monthly OANDA account statements against internal ledgers. For Exchange
+      Rates API subscriptions, track monthly quote usage against plan limits and upgrade
+      or downgrade tiers at renewal to match actual demand.

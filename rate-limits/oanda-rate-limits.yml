@@ -1,0 +1,81 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: OANDA
+providerId: oanda
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Forex
+  - Trading
+description: >-
+  OANDA v20 REST API rate limits apply per authenticated user. New streaming connections
+  are throttled to 2 per second; persistent HTTP connections support up to 100 requests
+  per second. Aggregate streaming connections are capped at 20 across all sessions.
+sources:
+  - https://developer.oanda.com/rest-live-v20/best-practices/
+  - https://developer.oanda.com/rest-live-v20/api-comparison/
+responseCodes:
+  throttled: 429
+limits:
+  - name: Per-user request limit
+    scope: user
+    metric: requests
+    limit: 30
+    timeFrame: rolling
+    description: Maximum number of concurrent in-flight requests per authenticated user.
+  - name: New connection rate
+    scope: global
+    metric: connections_per_second
+    limit: 2
+    timeFrame: second
+    description: New TCP/HTTP connections are throttled to 2 per second per client.
+  - name: Persistent connection throughput
+    scope: connection
+    metric: requests_per_second
+    limit: 100
+    timeFrame: second
+    description: >-
+      Existing persistent HTTP connections can sustain up to 100 requests per second.
+      HTTP 1.1 keep-alive is enabled by default; HTTP 1.0 clients should send
+      Connection: Keep-Alive header.
+  - name: Aggregate streaming connections
+    scope: account
+    metric: connections
+    limit: 20
+    timeFrame: session
+    description: >-
+      Total concurrent streaming connections (pricing stream and transaction stream)
+      across all sessions for a single account.
+  - name: Historical candle records per page
+    scope: request
+    metric: records
+    limit: 5000
+    timeFrame: request
+    description: Maximum number of candlestick records returned per candle history request.
+  - name: FIX API default message rate
+    scope: session
+    metric: messages_per_second
+    limit: 100
+    timeFrame: second
+    description: Default FIX API message rate limit (institutional accounts only; configurable).
+policies:
+  - name: Persistent connections preferred
+    description: >-
+      Use HTTP persistent (keep-alive) connections to reduce per-request latency and
+      avoid triggering the new connection rate throttle.
+  - name: Account state sync pattern
+    description: >-
+      Initialise with a full account snapshot via GET /v3/accounts/{accountID}, then
+      poll GET /v3/accounts/{accountID}/changes with the last TransactionID to receive
+      only incremental updates.
+  - name: Streaming connection management
+    description: >-
+      Open streaming connections sparingly; reconnect with exponential backoff on
+      disconnect. Do not exceed 20 aggregate streaming connections per account.
+  - name: Backoff on errors
+    description: >-
+      Implement exponential backoff when receiving rate limit or server error responses
+      to avoid sustained throttling.

@@ -1,0 +1,193 @@
+aid: oanda
+url: https://raw.githubusercontent.com/api-evangelist/oanda/main/apis.yml
+apis:
+  - aid: oanda:oanda-account-api
+    name: OANDA Account API
+    tags:
+      - Accounts
+      - Forex
+      - Trading
+    properties:
+      - url: https://developer.oanda.com/rest-live-v20/account-ep/
+        type: Documentation
+      - url: https://developer.oanda.com/rest-live-v20/account-ep/
+        type: APIReference
+    description: >-
+      Manage and retrieve OANDA trading account details, summaries, tradeable instruments,
+      and configuration settings. Supports polling for account state changes since a specified
+      transaction ID.
+  - aid: oanda:oanda-order-api
+    name: OANDA Order API
+    tags:
+      - Orders
+      - Forex
+      - Trading
+    properties:
+      - url: https://developer.oanda.com/rest-live-v20/order-ep/
+        type: Documentation
+      - url: https://developer.oanda.com/rest-live-v20/order-ep/
+        type: APIReference
+    description: >-
+      Create, list, modify, and cancel orders in an OANDA trading account. Supports market,
+      limit, stop, take profit, stop loss, and trailing stop order types with FOK, IOC, DAY,
+      GTD, and GTC durations.
+  - aid: oanda:oanda-trade-api
+    name: OANDA Trade API
+    tags:
+      - Trades
+      - Forex
+      - Trading
+    properties:
+      - url: https://developer.oanda.com/rest-live-v20/trade-ep/
+        type: Documentation
+      - url: https://developer.oanda.com/rest-live-v20/trade-ep/
+        type: APIReference
+    description: >-
+      List, retrieve, partially or fully close open trades, and manage dependent orders
+      (take profit, stop loss, trailing stop loss) for trades in an OANDA account.
+  - aid: oanda:oanda-position-api
+    name: OANDA Position API
+    tags:
+      - Positions
+      - Forex
+      - Trading
+    properties:
+      - url: https://developer.oanda.com/rest-live-v20/position-ep/
+        type: Documentation
+      - url: https://developer.oanda.com/rest-live-v20/position-ep/
+        type: APIReference
+    description: >-
+      List all positions (historical and open) and close out open positions for a specific
+      instrument in an OANDA trading account.
+  - aid: oanda:oanda-transaction-api
+    name: OANDA Transaction API
+    tags:
+      - Transactions
+      - Forex
+      - Trading
+    properties:
+      - url: https://developer.oanda.com/rest-live-v20/transaction-ep/
+        type: Documentation
+      - url: https://developer.oanda.com/rest-live-v20/transaction-ep/
+        type: APIReference
+    description: >-
+      Access full transaction history for an OANDA trading account with time-based and
+      ID-range queries. Includes a streaming endpoint for real-time transaction notifications
+      from the moment the request is made.
+  - aid: oanda:oanda-pricing-api
+    name: OANDA Pricing API
+    tags:
+      - Pricing
+      - Forex
+      - Real-Time Rates
+      - Historical Data
+      - Candles
+    properties:
+      - url: https://developer.oanda.com/rest-live-v20/pricing-ep/
+        type: Documentation
+      - url: https://developer.oanda.com/rest-live-v20/pricing-ep/
+        type: APIReference
+    description: >-
+      Retrieve real-time bid/ask pricing, stream live price updates at up to 4 per second,
+      and access historical OHLC candlestick data for any tradeable instrument. Historical
+      data is available from 2005 onward with up to 5,000 records per page.
+  - aid: oanda:oanda-exchange-rates-api
+    name: OANDA Exchange Rates API
+    tags:
+      - Exchange Rates
+      - Forex
+      - FX Data
+      - Currencies
+    properties:
+      - url: https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/
+        type: Documentation
+      - url: https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/api-plans/
+        type: Pricing
+    description: >-
+      Institutional-grade foreign exchange data service covering 200+ currencies and 38,000+
+      currency pairs. Provides daily average rates, period averages, ECB and national bank
+      rates, forward rates, streaming spot rates updated every five seconds, and
+      cryptocurrency rates. Available via annual subscription plans starting at $4,850/year.
+name: OANDA
+tags:
+  - Forex
+  - FX Trading
+  - CFD Trading
+  - Financial Services
+  - Trading APIs
+kind: contract
+access: 3rd-Party
+common:
+  - url: https://developer.oanda.com/
+    type: Portal
+  - url: https://developer.oanda.com/rest-live-v20/introduction/
+    type: Documentation
+  - url: https://developer.oanda.com/rest-live-v20/introduction/
+    type: GettingStarted
+  - url: https://developer.oanda.com/rest-live-v20/account-ep/
+    type: APIReference
+  - url: https://developer.oanda.com/rest-live-v20/authentication/
+    type: Authentication
+  - url: https://developer.oanda.com/rest-live-v20/best-practices/
+    type: BestPractices
+  - url: https://developer.oanda.com/rest-live-v20/api-comparison/
+    type: APIComparison
+  - url: https://github.com/oanda/v20-openapi
+    type: OpenAPISource
+  - url: https://github.com/oanda/v20-python
+    type: PythonSDK
+  - url: https://github.com/oanda/v20-python-samples
+    type: CodeSamples
+  - url: https://github.com/oanda/v20-javascript
+    type: JavaScriptSDK
+  - url: https://github.com/oanda/v20-java
+    type: JavaSDK
+  - url: https://github.com/oanda
+    type: GitHubOrganization
+  - url: https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/api-plans/
+    type: Pricing
+  - url: https://www.oanda.com/
+    type: Website
+  - url: https://www.oanda.com/us-en/trading/demo-account/
+    type: SignUp
+  - type: Features
+    data:
+      - REST v20 API with JSON over HTTP; stateless and language-agnostic
+      - Bearer token (Personal Access Token) authentication via fxTrade AMP
+      - Live and practice (demo) trading environments
+      - Real-time forex rates for all tradeable pairs 24 hours a day
+      - Historical candlestick data from 2005 onward (S5 to Monthly granularity)
+      - Streaming pricing endpoint at up to 4 price updates per second
+      - Full order lifecycle — market, limit, stop, OCO (TP/SL pair), trailing stop
+      - Trade management including partial close and dependent order updates
+      - Position closeout by instrument
+      - Unlimited recent transaction history with streaming endpoint
+      - Rate limit of 30 requests per user; aggregate of 20 streaming connections
+      - New connection limit of 2 per second; persistent connections up to 100 per second
+      - Exchange Rates Data API covering 200+ currencies and 38,000+ currency pairs
+      - Exchange Rates free 7-day trial with unlimited quotes
+      - FIX API for institutional customers
+      - MT4 integration for backtesting support
+    sources:
+      - https://developer.oanda.com/rest-live-v20/introduction/
+      - https://developer.oanda.com/rest-live-v20/best-practices/
+      - https://developer.oanda.com/rest-live-v20/api-comparison/
+    updated: '2026-06-13'
+created: '2026-06-13'
+modified: '2026-06-13'
+position: Consuming
+description: >-
+  OANDA is a forex and CFD trading broker offering REST APIs for live and practice trading.
+  The v20 REST API provides access to real-time forex rates, order management, trade lifecycle,
+  position tracking, and historical OHLC candle data dating back to 2005. A separate
+  Exchange Rates Data API delivers institutional-grade FX rates across 200+ currencies for
+  data services use cases.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+  - FN: APIs.json
+    email: info@apis.io
+  - name: OANDA
+    url: https://www.oanda.com
+specificationVersion: '0.19'
+image: https://www.oanda.com/img/oanda-logo.png

@@ -1,0 +1,189 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: OANDA
+providerId: oanda
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Forex
+  - FX Data
+  - Trading
+  - Exchange Rates
+description: >-
+  The OANDA v20 REST API for live and practice trading is available at no additional charge
+  to holders of an OANDA fxTrade account (costs arise through spreads and commissions on
+  trades). The Exchange Rates Data API is a separate paid service with tiered annual or
+  monthly subscription plans targeting data and analytics use cases.
+sources:
+  - https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/api-plans/
+  - https://developer.oanda.com/rest-live-v20/introduction/
+plans:
+  - id: oanda-trading-api-free
+    name: Trading API (fxTrade Account)
+    type: free
+    description: >-
+      Free API access bundled with an OANDA fxTrade live or demo account. Costs arise only
+      through trading spreads and commissions; there is no separate monthly API fee.
+    entries:
+      - label: API access
+        name: api_access
+        type: free
+        metric: account
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: REST v20 API access (live and practice environments)
+      - name: Personal Access Token via fxTrade AMP
+      - name: Real-time pricing and streaming rates
+      - name: Full order, trade, position, and transaction management
+      - name: Historical candle data from 2005
+      - name: 30 requests/user rate limit; 20 aggregate streaming connections
+  - id: oanda-exchange-rates-lite
+    name: Exchange Rates — Lite
+    type: subscription
+    description: Entry-level plan for the OANDA Exchange Rates Data API.
+    entries:
+      - label: Monthly subscription
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '450.00'
+        userMultiplied: false
+      - label: Annual subscription
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '4850.00'
+        userMultiplied: false
+    elements:
+      - name: 100,000 API quotes per month
+      - name: Daily average rates (bid, ask, midpoint)
+      - name: ECB rates
+      - name: 100+ national bank rates
+      - name: Period averages
+      - name: Open/Close data
+      - name: 2 HCC seats
+  - id: oanda-exchange-rates-premium
+    name: Exchange Rates — Premium
+    type: subscription
+    description: Enhanced coverage and higher quote volume for the Exchange Rates Data API.
+    entries:
+      - label: Monthly subscription
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '840.00'
+        userMultiplied: false
+      - label: Annual subscription
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '9000.00'
+        userMultiplied: false
+    elements:
+      - name: 100,000 quotes per month
+      - name: All Lite features
+      - name: Interbank percentages
+      - name: Forward rates
+      - name: 3-5 second spot rates
+      - name: Streaming rates
+      - name: Custom reporting periods
+  - id: oanda-exchange-rates-premium-plus
+    name: Exchange Rates — Premium Plus
+    type: subscription
+    description: Advanced tier with full data suite for professional FX data consumers.
+    entries:
+      - label: Monthly subscription
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '1160.00'
+        userMultiplied: false
+      - label: Annual subscription
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '13500.00'
+        userMultiplied: false
+    elements:
+      - name: All Premium features
+      - name: Enhanced data coverage
+      - name: Priority support
+  - id: oanda-exchange-rates-premium-crypto
+    name: Exchange Rates — Premium + Crypto
+    type: subscription
+    description: Premium Plus plan with added cryptocurrency rate data.
+    entries:
+      - label: Monthly subscription
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '1680.00'
+        userMultiplied: false
+      - label: Annual subscription
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '17000.00'
+        userMultiplied: false
+    elements:
+      - name: All Premium Plus features
+      - name: Cryptocurrency rate data
+      - name: 200+ currencies and 38,000+ currency pairs
+  - id: oanda-exchange-rates-trial
+    name: Exchange Rates — Free Trial
+    type: free
+    description: Seven-day trial key with unlimited quote access for the Exchange Rates API.
+    entries:
+      - label: Trial period
+        name: trial
+        type: free
+        metric: day
+        limit: 7
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Unlimited quotes during trial period
+      - name: Full API feature access
+      - name: No credit card required for trial
