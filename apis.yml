@@ -149,7 +149,7 @@ common:
   - url: https://www.oanda.com/
     type: Website
   - url: https://www.oanda.com/us-en/trading/demo-account/
-    type: SignUp
+    type: Signup
   - type: Features
     data:
       - REST v20 API with JSON over HTTP; stateless and language-agnostic
