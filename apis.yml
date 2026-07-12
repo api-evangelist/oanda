@@ -118,6 +118,8 @@ tags:
 kind: contract
 access: 3rd-Party
 common:
+  - type: DomainSecurity
+    url: security/oanda-domain-security.yml
   - url: https://developer.oanda.com/
     type: Portal
   - url: https://developer.oanda.com/rest-live-v20/introduction/
