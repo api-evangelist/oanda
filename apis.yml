@@ -235,5 +235,5 @@ maintainers:
     email: info@apis.io
   - name: OANDA
     url: https://www.oanda.com
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 image: https://www.oanda.com/img/oanda-logo.png
