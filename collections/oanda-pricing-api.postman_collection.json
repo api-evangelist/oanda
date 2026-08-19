@@ -1,0 +1,794 @@
+{
+  "item": [
+    {
+      "id": "f6be4d39-6d96-498b-b9c4-5ba9e8c34f8b",
+      "name": "Pricing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "678b6d00-7120-4bc3-947f-0b71549aca92",
+          "name": "Get Base Prices",
+          "request": {
+            "name": "Get Base Prices",
+            "description": {
+              "content": "Get pricing information for a specified instrument. Accounts are not associated in any way with this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>",
+                  "description": "The time at which the desired price for each instrument is in effect. The current price for each instrument is returned if no time is provided."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Format of DateTime fields in the request and response.",
+                "key": "Accept-Datetime-Format",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d56b4059-97f8-486e-9fa0-54c126b567c4",
+              "name": "Pricing information has been successfully provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "time",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"prices\": [\n    {\n      \"instrument\": \"string\",\n      \"tradeable\": false,\n      \"timestamp\": \"string\",\n      \"baseBid\": \"string\",\n      \"baseAsk\": \"string\",\n      \"bids\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 6867\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 8131\n        }\n      ],\n      \"asks\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 2867\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 8563\n        }\n      ],\n      \"closeoutBid\": \"string\",\n      \"closeoutAsk\": \"string\"\n    },\n    {\n      \"instrument\": \"string\",\n      \"tradeable\": true,\n      \"timestamp\": \"string\",\n      \"baseBid\": \"string\",\n      \"baseAsk\": \"string\",\n      \"bids\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 5878\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 608\n        }\n      ],\n      \"asks\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 9879\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 1178\n        }\n      ],\n      \"closeoutBid\": \"string\",\n      \"closeoutAsk\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecc1cf74-775e-4d25-835e-8621ebbf923b",
+              "name": "Bad Request. The client has provided invalid data to be processed by the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "time",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "588debf5-d0e0-4199-a685-6648186714b9",
+              "name": "Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "time",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d75f7cca-5bc3-4d8e-b2ba-bc83fb14e326",
+              "name": "Not Found. The client has attempted to access an entity that does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "time",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c9039a7-4596-4b6a-8284-8ef861d1d1bd",
+              "name": "Method Not Allowed. The client has attempted to access an endpoint using an HTTP method that is not supported.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "time",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bb80972-dfd9-4b20-9d22-842c0edf77c3",
+          "name": "Get Price Range",
+          "request": {
+            "name": "Get Price Range",
+            "description": {
+              "content": "Get pricing information for a specified range of prices. Accounts are not associated in any way with this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing",
+                "range"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>",
+                  "description": "(Required) The start of the time range to fetch prices for."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>",
+                  "description": "The end of the time range to fetch prices for. The current time is used if this parameter is not provided."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<A string containing the base currency and quote currency delimited by a \"_\".>",
+                  "key": "instrument",
+                  "description": "(Required) Name of the Instrument"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Format of DateTime fields in the request and response.",
+                "key": "Accept-Datetime-Format",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8a9f2fc-01d7-4b77-b342-1f6532015936",
+              "name": "Pricing information has been successfully provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A string containing the base currency and quote currency delimited by a \"_\".>",
+                      "key": "instrument",
+                      "description": "(Required) Name of the Instrument"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "A link to the next page of results if the results were paginated",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"prices\": [\n    {\n      \"instrument\": \"string\",\n      \"tradeable\": false,\n      \"timestamp\": \"string\",\n      \"baseBid\": \"string\",\n      \"baseAsk\": \"string\",\n      \"bids\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 9448\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 2980\n        }\n      ],\n      \"asks\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 4243\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 512\n        }\n      ],\n      \"closeoutBid\": \"string\",\n      \"closeoutAsk\": \"string\"\n    },\n    {\n      \"instrument\": \"string\",\n      \"tradeable\": false,\n      \"timestamp\": \"string\",\n      \"baseBid\": \"string\",\n      \"baseAsk\": \"string\",\n      \"bids\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 3851\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 7083\n        }\n      ],\n      \"asks\": [\n        {\n          \"price\": \"string\",\n          \"liquidity\": 1191\n        },\n        {\n          \"price\": \"string\",\n          \"liquidity\": 3497\n        }\n      ],\n      \"closeoutBid\": \"string\",\n      \"closeoutAsk\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33278088-17c1-479e-a180-d355b7abf878",
+              "name": "Bad Request. The client has provided invalid data to be processed by the server.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A string containing the base currency and quote currency delimited by a \"_\".>",
+                      "key": "instrument",
+                      "description": "(Required) Name of the Instrument"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cae708e-3e5d-4d5a-92b5-5e8e6b44ee2d",
+              "name": "Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A string containing the base currency and quote currency delimited by a \"_\".>",
+                      "key": "instrument",
+                      "description": "(Required) Name of the Instrument"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b74c0b79-6df7-4777-be0b-ffdfcfdcd92b",
+              "name": "Not Found. The client has attempted to access an entity that does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A string containing the base currency and quote currency delimited by a \"_\".>",
+                      "key": "instrument",
+                      "description": "(Required) Name of the Instrument"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c937eb96-b162-4c73-9622-740f867b27eb",
+              "name": "Method Not Allowed. The client has attempted to access an endpoint using an HTTP method that is not supported.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A string containing the base currency and quote currency delimited by a \"_\".>",
+                      "key": "instrument",
+                      "description": "(Required) Name of the Instrument"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Format of DateTime fields in the request and response.",
+                    "key": "Accept-Datetime-Format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f8eb58c3-58a2-45af-ab22-2011a50d4813",
+    "name": "OANDA v20 REST Accounts Pricing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The full OANDA v20 REST API Specification. This specification defines how to interact with v20 Accounts, Trades, Orders, Pricing and more.\n\nContact Support:\n Name: OANDA API Support\n Email: api@oanda.com",
+      "type": "text/plain"
+    }
+  }
+}

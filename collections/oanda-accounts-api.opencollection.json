@@ -1,0 +1,1181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OANDA v20 REST Accounts API",
+    "version": "3.0.25"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/positions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "List all Positions for an Account. The Positions returned are for every instrument that has had a position during the lifetime of an the Account."
+        },
+        {
+          "info": {
+            "name": "Open Positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/openPositions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "List all open Positions for an Account. An open Position is a Position in an Account that currently has a Trade opened for it."
+        },
+        {
+          "info": {
+            "name": "Instrument Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/positions/:instrument",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              }
+            ]
+          },
+          "docs": "Get the details of a single Instrument's Position in an Account. The Position may by open or not."
+        },
+        {
+          "info": {
+            "name": "Close Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/positions/:instrument/close",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              }
+            ]
+          },
+          "docs": "Closeout the open Position for a specific instrument in an Account."
+        },
+        {
+          "info": {
+            "name": "List Trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/trades",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "List of Trade IDs to retrieve."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state to filter the requested Trades by."
+              },
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "query",
+                "description": "The instrument to filter the requested Trades by."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of Trades to return."
+              },
+              {
+                "name": "beforeID",
+                "value": "",
+                "type": "query",
+                "description": "The maximum Trade ID to return. If not provided the most recent Trades in the Account are returned."
+              }
+            ]
+          },
+          "docs": "Get a list of Trades for an Account"
+        },
+        {
+          "info": {
+            "name": "List Open Trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/openTrades",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "Get the list of open Trades for an Account"
+        },
+        {
+          "info": {
+            "name": "Trade Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/trades/:tradeSpecifier",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "tradeSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "Specifier for the Trade"
+              }
+            ]
+          },
+          "docs": "Get the details of a specific Trade in an Account"
+        },
+        {
+          "info": {
+            "name": "Close Trade",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/trades/:tradeSpecifier/close",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "tradeSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "Specifier for the Trade"
+              }
+            ]
+          },
+          "docs": "Close (partially or fully) a specific open Trade in an Account"
+        },
+        {
+          "info": {
+            "name": "Set Trade Client Extensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/trades/:tradeSpecifier/clientExtensions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "tradeSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "Specifier for the Trade"
+              }
+            ]
+          },
+          "docs": "Update the Client Extensions for a Trade. Do not add, update, or delete the Client Extensions if your account is associated with MT4."
+        },
+        {
+          "info": {
+            "name": "Set Dependent Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/trades/:tradeSpecifier/orders",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "tradeSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "Specifier for the Trade"
+              }
+            ]
+          },
+          "docs": "Create, replace and cancel a Trade's dependent Orders (Take Profit, Stop Loss and Trailing Stop Loss) through the Trade itself"
+        },
+        {
+          "info": {
+            "name": "List Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get a list of all Accounts authorized for the provided token."
+        },
+        {
+          "info": {
+            "name": "Account Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "Get the full details for a single Account that a client has access to. Full pending Order, open Trade and open Position representations are provided."
+        },
+        {
+          "info": {
+            "name": "Account Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/summary",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "Get a summary for a single Account that a client has access to."
+        },
+        {
+          "info": {
+            "name": "Account Instruments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/instruments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "instruments",
+                "value": "",
+                "type": "query",
+                "description": "List of instruments to query specifically."
+              }
+            ]
+          },
+          "docs": "Get the list of tradeable instruments for the given Account. The list of tradeable instruments is dependent on the regulatory division that the Account is located in, thus should be the same for all Accounts owned by a single user."
+        },
+        {
+          "info": {
+            "name": "Configure Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/accounts/:accountID/configuration",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "Set the client-configurable portions of an Account."
+        },
+        {
+          "info": {
+            "name": "Poll Account Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/changes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "sinceTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "ID of the Transaction to get Account changes since."
+              }
+            ]
+          },
+          "docs": "Endpoint used to poll an Account for its current state and changes since a specified TransactionID."
+        },
+        {
+          "info": {
+            "name": "List Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/transactions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The starting time (inclusive) of the time range for the Transactions being queried."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The ending time (inclusive) of the time range for the Transactions being queried."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of Transactions to include in each page of the results."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "A filter for restricting the types of Transactions to retreive."
+              }
+            ]
+          },
+          "docs": "Get a list of Transactions pages that satisfy a time-based Transaction query."
+        },
+        {
+          "info": {
+            "name": "Transaction Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/transactions/:transactionID",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "transactionID",
+                "value": "",
+                "type": "path",
+                "description": "A Transaction ID"
+              }
+            ]
+          },
+          "docs": "Get the details of a single Account Transaction."
+        },
+        {
+          "info": {
+            "name": "Transaction ID Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/transactions/idrange",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The starting Transacion ID (inclusive) to fetch."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The ending Transaction ID (inclusive) to fetch."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The filter that restricts the types of Transactions to retreive."
+              }
+            ]
+          },
+          "docs": "Get a range of Transactions for an Account based on the Transaction IDs."
+        },
+        {
+          "info": {
+            "name": "Transactions Since ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/transactions/sinceid",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the last Transacion fetched. This query will return all Transactions newer than the TransactionID."
+              }
+            ]
+          },
+          "docs": "Get a range of Transactions for an Account starting at (but not including) a provided Transaction ID."
+        },
+        {
+          "info": {
+            "name": "Transaction Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/transactions/stream",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "Get a stream of Transactions for an Account starting from when the request is made."
+        },
+        {
+          "info": {
+            "name": "Current Account Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/pricing",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "instruments",
+                "value": "",
+                "type": "query",
+                "description": "List of Instruments to get pricing for."
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Date/Time filter to apply to the response. Only prices and home conversions (if requested) with a time later than this filter (i.e. the price has changed after the since time) will be provided, and are filtered independently."
+              },
+              {
+                "name": "includeUnitsAvailable",
+                "value": "",
+                "type": "query",
+                "description": "Flag that enables the inclusion of the unitsAvailable field in the returned Price objects."
+              },
+              {
+                "name": "includeHomeConversions",
+                "value": "",
+                "type": "query",
+                "description": "Flag that enables the inclusion of the homeConversions field in the returned response. An entry will be returned for each currency in the set of all base and quote currencies present in the requested instruments list."
+              }
+            ]
+          },
+          "docs": "Get pricing information for a specified list of Instruments within an Account."
+        },
+        {
+          "info": {
+            "name": "Price Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/pricing/stream",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "instruments",
+                "value": "",
+                "type": "query",
+                "description": "List of Instruments to stream Prices for."
+              },
+              {
+                "name": "snapshot",
+                "value": "",
+                "type": "query",
+                "description": "Flag that enables/disables the sending of a pricing snapshot when initially connecting to the stream."
+              }
+            ]
+          },
+          "docs": "Get a stream of Account Prices starting from when the request is made.\nThis pricing stream does not include every single price created for the Account, but instead will provide at most 4 prices per second (every 250 milliseconds) for each instrument being requested.\nIf more than one price is created for an instrument during the 250 millisecond window, only the price in effect at the end of the window is sent. This means that during periods of rapid price movement, subscribers to this stream will"
+        },
+        {
+          "info": {
+            "name": "Get Candlesticks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/instruments/:instrument/candles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "The Price component(s) to get candlestick data for. Can contain any combination of the characters \"M\" (midpoint candles) \"B\" (bid candles) and \"A\" (ask candles)."
+              },
+              {
+                "name": "granularity",
+                "value": "",
+                "type": "query",
+                "description": "The granularity of the candlesticks to fetch"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of candlesticks to return in the response. Count should not be specified if both the start and end parameters are provided, as the time range combined with the granularity will determine the number of candlesticks to return."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time range to fetch candlesticks for."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time range to fetch candlesticks for."
+              },
+              {
+                "name": "smooth",
+                "value": "",
+                "type": "query",
+                "description": "A flag that controls whether the candlestick is \"smoothed\" or not.  A smoothed candlestick uses the previous candle's close price as its open price, while an unsmoothed candlestick uses the first price from its time range as its open price."
+              },
+              {
+                "name": "includeFirst",
+                "value": "",
+                "type": "query",
+                "description": "A flag that controls whether the candlestick that is covered by the from time should be included in the results. This flag enables clients to use the timestamp of the last completed candlestick received to poll for future candlesticks but avoid receiving the previous candlestick repeatedly."
+              },
+              {
+                "name": "dailyAlignment",
+                "value": "",
+                "type": "query",
+                "description": "The hour of the day (in the specified timezone) to use for granularities that have daily alignments."
+              },
+              {
+                "name": "alignmentTimezone",
+                "value": "",
+                "type": "query",
+                "description": "The timezone to use for the dailyAlignment parameter. Candlesticks with daily alignment will be aligned to the dailyAlignment hour within the alignmentTimezone.  Note that the returned times will still be represented in UTC."
+              },
+              {
+                "name": "weeklyAlignment",
+                "value": "",
+                "type": "query",
+                "description": "The day of the week used for granularities that have weekly alignment."
+              },
+              {
+                "name": "units",
+                "value": "",
+                "type": "query",
+                "description": "The number of units used to calculate the volume-weighted average bid and ask prices in the returned candles."
+              }
+            ]
+          },
+          "docs": "Fetch candlestick data for an instrument."
+        },
+        {
+          "info": {
+            "name": "List Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/orders",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "List of Order IDs to retrieve"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state to filter the requested Orders by"
+              },
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "query",
+                "description": "The instrument to filter the requested orders by"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of Orders to return"
+              },
+              {
+                "name": "beforeID",
+                "value": "",
+                "type": "query",
+                "description": "The maximum Order ID to return. If not provided the most recent Orders in the Account are returned"
+              }
+            ]
+          },
+          "docs": "Get a list of Orders for an Account"
+        },
+        {
+          "info": {
+            "name": "Create Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/accounts/:accountID/orders",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "Create an Order for an Account"
+        },
+        {
+          "info": {
+            "name": "Pending Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/pendingOrders",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              }
+            ]
+          },
+          "docs": "List all pending Orders in an Account"
+        },
+        {
+          "info": {
+            "name": "Get Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/accounts/:accountID/orders/:orderSpecifier",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "orderSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "The Order Specifier"
+              }
+            ]
+          },
+          "docs": "Get details for a single Order in an Account"
+        },
+        {
+          "info": {
+            "name": "Replace Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/orders/:orderSpecifier",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              },
+              {
+                "name": "ClientRequestID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "orderSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "The Order Specifier"
+              }
+            ]
+          },
+          "docs": "Replace an Order in an Account by simultaneously cancelling it and creating a replacement Order"
+        },
+        {
+          "info": {
+            "name": "Cancel Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/orders/:orderSpecifier/cancel",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              },
+              {
+                "name": "ClientRequestID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "orderSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "The Order Specifier"
+              }
+            ]
+          },
+          "docs": "Cancel a pending Order in an Account"
+        },
+        {
+          "info": {
+            "name": "Set Order Extensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/accounts/:accountID/orders/:orderSpecifier/clientExtensions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "accountID",
+                "value": "",
+                "type": "path",
+                "description": "Account Identifier"
+              },
+              {
+                "name": "orderSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "The Order Specifier"
+              }
+            ]
+          },
+          "docs": "Update the Client Extensions for an Order in an Account. Do not set, modify, or delete clientExtensions if your account is associated with MT4."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

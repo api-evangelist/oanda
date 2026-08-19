@@ -1,0 +1,253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OANDA v20 REST Accounts Instruments API",
+    "version": "3.0.25"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Instruments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Candlesticks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/instruments/:instrument/candles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "The Price component(s) to get candlestick data for. Can contain any combination of the characters \"M\" (midpoint candles) \"B\" (bid candles) and \"A\" (ask candles)."
+              },
+              {
+                "name": "granularity",
+                "value": "",
+                "type": "query",
+                "description": "The granularity of the candlesticks to fetch"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of candlesticks to return in the reponse. Count should not be specified if both the start and end parameters are provided, as the time range combined with the graularity will determine the number of candlesticks to return."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time range to fetch candlesticks for."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time range to fetch candlesticks for."
+              },
+              {
+                "name": "smooth",
+                "value": "",
+                "type": "query",
+                "description": "A flag that controls whether the candlestick is \"smoothed\" or not.  A smoothed candlestick uses the previous candle's close price as its open price, while an unsmoothed candlestick uses the first price from its time range as its open price."
+              },
+              {
+                "name": "includeFirst",
+                "value": "",
+                "type": "query",
+                "description": "A flag that controls whether the candlestick that is covered by the from time should be included in the results. This flag enables clients to use the timestamp of the last completed candlestick received to poll for future candlesticks but avoid receiving the previous candlestick repeatedly."
+              },
+              {
+                "name": "dailyAlignment",
+                "value": "",
+                "type": "query",
+                "description": "The hour of the day (in the specified timezone) to use for granularities that have daily alignments."
+              },
+              {
+                "name": "alignmentTimezone",
+                "value": "",
+                "type": "query",
+                "description": "The timezone to use for the dailyAlignment parameter. Candlesticks with daily alignment will be aligned to the dailyAlignment hour within the alignmentTimezone.  Note that the returned times will still be represented in UTC."
+              },
+              {
+                "name": "weeklyAlignment",
+                "value": "",
+                "type": "query",
+                "description": "The day of the week used for granularities that have weekly alignment."
+              }
+            ]
+          },
+          "docs": "Fetch candlestick data for an instrument."
+        },
+        {
+          "info": {
+            "name": "Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/instruments/:instrument/price",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "query",
+                "description": "The time at which the desired price is in effect. The current price is returned if no time is provided."
+              }
+            ]
+          },
+          "docs": "Fetch a price for an instrument. Accounts are not associated in any way with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Get Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/instruments/:instrument/price/range",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time range to fetch prices for."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time range to fetch prices for. The current time is used if this parameter is not provided."
+              }
+            ]
+          },
+          "docs": "Fetch a range of prices for an instrument. Accounts are not associated in any way with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Get Order Book",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/instruments/:instrument/orderBook",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "query",
+                "description": "The time of the snapshot to fetch. If not specified, then the most recent snapshot is fetched."
+              }
+            ]
+          },
+          "docs": "Fetch an order book for an instrument."
+        },
+        {
+          "info": {
+            "name": "Get Position Book",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/instruments/:instrument/positionBook",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "query",
+                "description": "The time of the snapshot to fetch. If not specified, then the most recent snapshot is fetched."
+              }
+            ]
+          },
+          "docs": "Fetch a position book for an instrument."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

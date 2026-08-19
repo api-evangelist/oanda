@@ -1,0 +1,573 @@
+{
+  "item": [
+    {
+      "id": "334c9681-a367-486f-bc6c-35cdab8e7b82",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2746983b-1ac8-40f6-be87-3c91e886234f",
+          "name": "User Info",
+          "request": {
+            "name": "User Info",
+            "description": {
+              "content": "Fetch the user information for the specified user. This endpoint is intended to be used by the user themself to obtain their own information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userSpecifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                  "key": "userSpecifier",
+                  "description": "(Required) The User Specifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c8268eb-0cf9-425a-8be4-f16c11374006",
+              "name": "The user information has been provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfo\": {\n    \"username\": \"string\",\n    \"userID\": 5145,\n    \"country\": \"string\",\n    \"emailAddress\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57fa8c96-01e9-4d4d-8161-d5f80267b643",
+              "name": "Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dde73fa8-8b13-45a0-b71c-4cf5badb6ff9",
+              "name": "Forbidden. The client has provided a token that does not authorize them to perform the action implemented by the API endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e314889e-b94e-487b-98c7-cd39fdd8ddc7",
+              "name": "Method Not Allowed. The client has attempted to access an endpoint using an HTTP method that is not supported.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2213bcb7-5204-47f3-8479-5f75bee7497a",
+          "name": "External User Info",
+          "request": {
+            "name": "External User Info",
+            "description": {
+              "content": "Fetch the externally-available user information for the specified user. This endpoint is intended to be used by 3rd parties that have been authorized by a user to view their personal information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userSpecifier",
+                "externalInfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                  "key": "userSpecifier",
+                  "description": "(Required) The User Specifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2ef934c-7e21-44f3-94ad-c5c1805cb744",
+              "name": "The external user information has been provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier",
+                    "externalInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfo\": {\n    \"userID\": 5288,\n    \"country\": \"string\",\n    \"FIFO\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7bc174a2-5b4b-4373-bfde-d055a2c7287a",
+              "name": "Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier",
+                    "externalInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b6c38ea-f48c-4e67-bb61-1b96777d9313",
+              "name": "Forbidden. The client has provided a token that does not authorize them to perform the action implemented by the API endpoint.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier",
+                    "externalInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4817eac-70ae-4291-afd3-4ac2755f128a",
+              "name": "Method Not Allowed. The client has attempted to access an endpoint using an HTTP method that is not supported.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userSpecifier",
+                    "externalInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the \"@\" symbol (e.g. \"@myusername\"), or the \"@\" symbol. The \"@\" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).>",
+                      "key": "userSpecifier",
+                      "description": "(Required) The User Specifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization bearer token previously obtained by the client",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The unique identifier generated for the request",
+                  "key": "RequestID",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6907eb2d-96ab-4f8a-9c4e-1e969e38f996",
+    "name": "OANDA v20 REST Accounts Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The full OANDA v20 REST API Specification. This specification defines how to interact with v20 Accounts, Trades, Orders, Pricing and more.\n\nContact Support:\n Name: OANDA API Support\n Email: api@oanda.com",
+      "type": "text/plain"
+    }
+  }
+}

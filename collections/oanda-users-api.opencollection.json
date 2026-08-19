@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OANDA v20 REST Accounts Users API",
+    "version": "3.0.25"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:userSpecifier",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "The User Specifier"
+              }
+            ]
+          },
+          "docs": "Fetch the user information for the specified user. This endpoint is intended to be used by the user themself to obtain their own information."
+        },
+        {
+          "info": {
+            "name": "External User Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:userSpecifier/externalInfo",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userSpecifier",
+                "value": "",
+                "type": "path",
+                "description": "The User Specifier"
+              }
+            ]
+          },
+          "docs": "Fetch the externally-available user information for the specified user. This endpoint is intended to be used by 3rd parties that have been authorized by a user to view their personal information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

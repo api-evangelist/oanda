@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OANDA v20 REST Accounts Pricing API",
+    "version": "3.0.25"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pricing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Base Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pricing",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "time",
+                "value": "",
+                "type": "query",
+                "description": "The time at which the desired price for each instrument is in effect. The current price for each instrument is returned if no time is provided."
+              }
+            ]
+          },
+          "docs": "Get pricing information for a specified instrument. Accounts are not associated in any way with this endpoint."
+        },
+        {
+          "info": {
+            "name": "Get Price Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pricing/range",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Accept-Datetime-Format",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "instrument",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Instrument"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time range to fetch prices for."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time range to fetch prices for. The current time is used if this parameter is not provided."
+              }
+            ]
+          },
+          "docs": "Get pricing information for a specified range of prices. Accounts are not associated in any way with this endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
