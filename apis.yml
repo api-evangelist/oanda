@@ -4,6 +4,10 @@ apis:
 - aid: oanda:oanda-account-api
   name: OANDA Account API
   tags:
+  - Account
+  - Forex
+  - Trading
+  tags_raw:
   - Accounts
   - Forex
   - Trading
@@ -18,6 +22,10 @@ apis:
 - aid: oanda:oanda-order-api
   name: OANDA Order API
   tags:
+  - Order
+  - Forex
+  - Trading
+  tags_raw:
   - Orders
   - Forex
   - Trading
@@ -60,6 +68,10 @@ apis:
 - aid: oanda:oanda-transaction-api
   name: OANDA Transaction API
   tags:
+  - Transaction
+  - Forex
+  - Trading
+  tags_raw:
   - Transactions
   - Forex
   - Trading
@@ -95,6 +107,11 @@ apis:
   - Exchange Rates
   - Forex
   - FX Data
+  - Currency
+  tags_raw:
+  - Exchange Rates
+  - Forex
+  - FX Data
   - Currencies
   properties:
   - url: https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/
@@ -110,6 +127,8 @@ apis:
   name: OANDA Accounts API
   description: The Accounts API from OANDA — 29 operation(s) for accounts.
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -134,12 +153,20 @@ apis:
   name: OANDA Users API
   description: The Users API from OANDA — 2 operation(s) for users.
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
     url: openapi/oanda-users-api-openapi.yml
 name: OANDA
 tags:
+  - Forex
+  - FX Trading
+  - CFD Trading
+  - Financial-Services
+  - Trading APIs
+tags_raw:
   - Forex
   - FX Trading
   - CFD Trading
