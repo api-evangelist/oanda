@@ -175,6 +175,9 @@ tags_raw:
 kind: contract
 access: 3rd-Party
 common:
+  - type: CapabilityMap
+    url: capabilities/oanda-capability-edges.yml
+    name: OANDA Business Capability Map
   - type: AgenticAccess
     url: agentic-access/oanda-agentic-access.yml
   - type: DomainSecurity
