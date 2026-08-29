@@ -234,6 +234,18 @@ common:
       - https://developer.oanda.com/rest-live-v20/best-practices/
       - https://developer.oanda.com/rest-live-v20/api-comparison/
     updated: '2026-06-13'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
