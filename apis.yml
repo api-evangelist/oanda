@@ -40,6 +40,10 @@ apis:
 - aid: oanda:oanda-trade-api
   name: OANDA Trade API
   tags:
+  - Trade
+  - Forex
+  - Trading
+  tags_raw:
   - Trades
   - Forex
   - Trading
