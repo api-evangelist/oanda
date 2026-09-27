@@ -326,23 +326,75 @@ paths:
       operationId: getInstrumentsByInstrumentPositionBook
       x-operation-id-source: derived
 components:
+  parameters:
+    acceptDatetimeFormatHeaderParam:
+      name: Accept-Datetime-Format
+      description: Format of DateTime fields in the request and response.
+      in: header
+      schema:
+        type: string
+    instrumentNamePathParam:
+      name: instrument
+      description: Name of the Instrument
+      in: path
+      required: true
+      schema:
+        type: string
+        format: A string containing the base currency and quote currency delimited by a "_".
+    authorizationHeaderParam:
+      name: Authorization
+      description: The authorization bearer token previously obtained by the client
+      in: header
+      required: true
+      schema:
+        type: string
+        format: The string 'Bearer ' followed by the token.
   schemas:
-    OrderBookBucket:
+    CandlestickData:
       type: object
-      description: The order book data for a partition of the instrument's prices.
+      description: The price data (open, high, low, close) for the Candlestick representation.
       properties:
+        o:
+          type: string
+          description: The first (open) price in the time-range represented by the candlestick.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        h:
+          type: string
+          description: The highest price in the time-range represented by the candlestick.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        l:
+          type: string
+          description: The lowest price in the time-range represented by the candlestick.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        c:
+          type: string
+          description: The last (closing) price in the time-range represented by the candlestick.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+    PositionBook:
+      type: object
+      description: The representation of an instrument's position book at a point in time
+      properties:
+        instrument:
+          type: string
+          description: The position book's instrument
+          format: A string containing the base currency and quote currency delimited by a "_".
+        time:
+          type: string
+          description: The time when the position book snapshot was created
+          format: The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).
         price:
           type: string
-          description: The lowest price (inclusive) covered by the bucket. The bucket covers the price range from the price to price + the order book's bucketWidth.
+          description: The price (midpoint) for the position book's instrument at the time of the position book snapshot
           format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        longCountPercent:
+        bucketWidth:
           type: string
-          description: The percentage of the total number of orders represented by the long orders found in this bucket.
-          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
-        shortCountPercent:
-          type: string
-          description: The percentage of the total number of orders represented by the short orders found in this bucket.
-          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
+          description: The price width for each bucket. Each bucket covers the price range from the bucket's price to the bucket's price + bucketWidth.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        buckets:
+          type: array
+          description: The partitioned position book, divided into buckets using a default bucket width. These buckets are only provided for price ranges which actually contain order or position data.
+          items:
+            $ref: '#/components/schemas/PositionBookBucket'
     Price:
       type: object
       description: The Price representation
@@ -404,78 +456,6 @@ components:
         complete:
           type: boolean
           description: A flag indicating if the candlestick is complete. A complete candlestick is one whose ending time is not in the future.
-    PositionBook:
-      type: object
-      description: The representation of an instrument's position book at a point in time
-      properties:
-        instrument:
-          type: string
-          description: The position book's instrument
-          format: A string containing the base currency and quote currency delimited by a "_".
-        time:
-          type: string
-          description: The time when the position book snapshot was created
-          format: The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places).
-        price:
-          type: string
-          description: The price (midpoint) for the position book's instrument at the time of the position book snapshot
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        bucketWidth:
-          type: string
-          description: The price width for each bucket. Each bucket covers the price range from the bucket's price to the bucket's price + bucketWidth.
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        buckets:
-          type: array
-          description: The partitioned position book, divided into buckets using a default bucket width. These buckets are only provided for price ranges which actually contain order or position data.
-          items:
-            $ref: '#/components/schemas/PositionBookBucket'
-    CandlestickData:
-      type: object
-      description: The price data (open, high, low, close) for the Candlestick representation.
-      properties:
-        o:
-          type: string
-          description: The first (open) price in the time-range represented by the candlestick.
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        h:
-          type: string
-          description: The highest price in the time-range represented by the candlestick.
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        l:
-          type: string
-          description: The lowest price in the time-range represented by the candlestick.
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        c:
-          type: string
-          description: The last (closing) price in the time-range represented by the candlestick.
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-    PositionBookBucket:
-      type: object
-      description: The position book data for a partition of the instrument's prices.
-      properties:
-        price:
-          type: string
-          description: The lowest price (inclusive) covered by the bucket. The bucket covers the price range from the price to price + the position book's bucketWidth.
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        longCountPercent:
-          type: string
-          description: The percentage of the total number of positions represented by the long positions found in this bucket.
-          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
-        shortCountPercent:
-          type: string
-          description: The percentage of the total number of positions represented by the short positions found in this bucket.
-          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
-    PriceBucket:
-      type: object
-      description: A Price Bucket represents a price available for an amount of liquidity
-      properties:
-        price:
-          type: string
-          description: The Price offered by the PriceBucket
-          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
-        liquidity:
-          type: integer
-          description: The amount of liquidity offered by the PriceBucket
     OrderBook:
       type: object
       description: The representation of an instrument's order book at a point in time
@@ -501,48 +481,50 @@ components:
           description: The partitioned order book, divided into buckets using a default bucket width. These buckets are only provided for price ranges which actually contain order or position data.
           items:
             $ref: '#/components/schemas/OrderBookBucket'
-  parameters:
-    instrumentNamePathParam:
-      name: instrument
-      description: Name of the Instrument
-      in: path
-      required: true
-      schema:
-        type: string
-        format: A string containing the base currency and quote currency delimited by a "_".
-    acceptDatetimeFormatHeaderParam:
-      name: Accept-Datetime-Format
-      description: Format of DateTime fields in the request and response.
-      in: header
-      schema:
-        type: string
-    authorizationHeaderParam:
-      name: Authorization
-      description: The authorization bearer token previously obtained by the client
-      in: header
-      required: true
-      schema:
-        type: string
-        format: The string 'Bearer ' followed by the token.
+    PriceBucket:
+      type: object
+      description: A Price Bucket represents a price available for an amount of liquidity
+      properties:
+        price:
+          type: string
+          description: The Price offered by the PriceBucket
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        liquidity:
+          type: integer
+          description: The amount of liquidity offered by the PriceBucket
+    OrderBookBucket:
+      type: object
+      description: The order book data for a partition of the instrument's prices.
+      properties:
+        price:
+          type: string
+          description: The lowest price (inclusive) covered by the bucket. The bucket covers the price range from the price to price + the order book's bucketWidth.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        longCountPercent:
+          type: string
+          description: The percentage of the total number of orders represented by the long orders found in this bucket.
+          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
+        shortCountPercent:
+          type: string
+          description: The percentage of the total number of orders represented by the short orders found in this bucket.
+          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
+    PositionBookBucket:
+      type: object
+      description: The position book data for a partition of the instrument's prices.
+      properties:
+        price:
+          type: string
+          description: The lowest price (inclusive) covered by the bucket. The bucket covers the price range from the price to price + the position book's bucketWidth.
+          format: A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
+        longCountPercent:
+          type: string
+          description: The percentage of the total number of positions represented by the long positions found in this bucket.
+          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
+        shortCountPercent:
+          type: string
+          description: The percentage of the total number of positions represented by the short positions found in this bucket.
+          format: A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
   responses:
-    '401':
-      description: Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.
-      headers:
-        RequestID:
-          description: The unique identifier generated for the request
-          schema:
-            type: string
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              errorCode:
-                type: string
-                description: The code of the error that has occurred. This field may not be returned for some errors.
-              errorMessage:
-                type: string
-                description: The human-readable description of the error that has occurred.
     '404':
       description: Not Found. The client has attempted to access an entity that does not exist.
       headers:
@@ -581,6 +563,24 @@ components:
                 description: The human-readable description of the error that has occurred.
     '400':
       description: Bad Request. The client has provided invalid data to be processed by the server.
+      headers:
+        RequestID:
+          description: The unique identifier generated for the request
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: The code of the error that has occurred. This field may not be returned for some errors.
+              errorMessage:
+                type: string
+                description: The human-readable description of the error that has occurred.
+    '401':
+      description: Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.
       headers:
         RequestID:
           description: The unique identifier generated for the request

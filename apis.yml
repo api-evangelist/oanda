@@ -88,23 +88,6 @@ apis:
     Access full transaction history for an OANDA trading account with time-based and ID-range queries.
     Includes a streaming endpoint for real-time transaction notifications from the moment the request
     is made.
-- aid: oanda:oanda-pricing-api
-  name: OANDA Pricing API
-  tags:
-  - Pricing
-  - Forex
-  - Real-Time Rates
-  - Historical Data
-  - Candles
-  properties:
-  - url: https://developer.oanda.com/rest-live-v20/pricing-ep/
-    type: Documentation
-  - url: https://developer.oanda.com/rest-live-v20/pricing-ep/
-    type: APIReference
-  description: >-
-    Retrieve real-time bid/ask pricing, stream live price updates at up to 4 per second, and access historical
-    OHLC candlestick data for any tradeable instrument. Historical data is available from 2005 onward
-    with up to 5,000 records per page.
 - aid: oanda:oanda-exchange-rates-api
   name: OANDA Exchange Rates API
   tags:
@@ -147,12 +130,22 @@ apis:
     url: openapi/oanda-instruments-api-openapi.yml
 - aid: oanda:oanda-pricing-api
   name: OANDA Pricing API
-  description: The Pricing API from OANDA — 2 operation(s) for pricing.
+  description: Retrieve real-time bid/ask pricing, stream live price updates at up to 4 per second, and
+    access historical OHLC candlestick data for any tradeable instrument. Historical data is available from
+    2005 onward with up to 5,000 records per page.
   tags:
   - Pricing
+  - Forex
+  - Real-Time Rates
+  - Historical Data
+  - Candles
   properties:
   - type: OpenAPI
     url: openapi/oanda-pricing-api-openapi.yml
+  - url: https://developer.oanda.com/rest-live-v20/pricing-ep/
+    type: Documentation
+  - url: https://developer.oanda.com/rest-live-v20/pricing-ep/
+    type: APIReference
 - aid: oanda:oanda-users-api
   name: OANDA Users API
   description: The Users API from OANDA — 2 operation(s) for users.
@@ -168,7 +161,7 @@ tags:
   - Forex
   - FX Trading
   - CFD Trading
-  - Financial-Services
+  - Financial Services
   - Trading APIs
 tags_raw:
   - Forex
@@ -176,6 +169,7 @@ tags_raw:
   - CFD Trading
   - Financial Services
   - Trading APIs
+  - Financial-Services
 kind: contract
 access: 3rd-Party
 common:
