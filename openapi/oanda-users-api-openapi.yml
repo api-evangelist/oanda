@@ -78,25 +78,24 @@ paths:
       tags:
       - Users
 components:
+  parameters:
+    userSpecifierPathParam:
+      name: userSpecifier
+      description: The User Specifier
+      in: path
+      required: true
+      schema:
+        type: string
+        format: 'A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the "@" symbol (e.g. "@myusername"), or the "@" symbol. The "@" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).'
+    authorizationHeaderParam:
+      name: Authorization
+      description: The authorization bearer token previously obtained by the client
+      in: header
+      required: true
+      schema:
+        type: string
+        format: The string 'Bearer ' followed by the token.
   responses:
-    '403':
-      description: Forbidden. The client has provided a token that does not authorize them to perform the action implemented by the API endpoint.
-      headers:
-        RequestID:
-          description: The unique identifier generated for the request
-          schema:
-            type: string
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              errorCode:
-                type: string
-                description: The code of the error that has occurred. This field may not be returned for some errors.
-              errorMessage:
-                type: string
-                description: The human-readable description of the error that has occurred.
     '405':
       description: Method Not Allowed. The client has attempted to access an endpoint using an HTTP method that is not supported.
       headers:
@@ -117,6 +116,24 @@ components:
                 description: The human-readable description of the error that has occurred.
     '401':
       description: Unauthorized. The endpoint being access required the client to authenticated, however the the authentication token is invalid or has not been provided.
+      headers:
+        RequestID:
+          description: The unique identifier generated for the request
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: The code of the error that has occurred. This field may not be returned for some errors.
+              errorMessage:
+                type: string
+                description: The human-readable description of the error that has occurred.
+    '403':
+      description: Forbidden. The client has provided a token that does not authorize them to perform the action implemented by the API endpoint.
       headers:
         RequestID:
           description: The unique identifier generated for the request
@@ -163,20 +180,3 @@ components:
         FIFO:
           type: boolean
           description: Flag indicating if the the user's Accounts adhere to FIFO execution rules.
-  parameters:
-    userSpecifierPathParam:
-      name: userSpecifier
-      description: The User Specifier
-      in: path
-      required: true
-      schema:
-        type: string
-        format: 'A user specifier may have one of 3 formats: the OANDA-assigned User ID (numerical), the client-provided username prefixed by the "@" symbol (e.g. "@myusername"), or the "@" symbol. The "@" symbol on its own acts as an alias for the username of the user accessing the endpoint (as inferred from the token provided).'
-    authorizationHeaderParam:
-      name: Authorization
-      description: The authorization bearer token previously obtained by the client
-      in: header
-      required: true
-      schema:
-        type: string
-        format: The string 'Bearer ' followed by the token.

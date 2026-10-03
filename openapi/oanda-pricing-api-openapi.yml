@@ -113,12 +113,6 @@ paths:
       - Pricing
 components:
   parameters:
-    acceptDatetimeFormatHeaderParam:
-      name: Accept-Datetime-Format
-      description: Format of DateTime fields in the request and response.
-      in: header
-      schema:
-        type: string
     instrumentNamePathParam:
       name: instrument
       description: Name of the Instrument
@@ -135,27 +129,15 @@ components:
       schema:
         type: string
         format: The string 'Bearer ' followed by the token.
+    acceptDatetimeFormatHeaderParam:
+      name: Accept-Datetime-Format
+      description: Format of DateTime fields in the request and response.
+      in: header
+      schema:
+        type: string
   responses:
     '405':
       description: Method Not Allowed. The client has attempted to access an endpoint using an HTTP method that is not supported.
-      headers:
-        RequestID:
-          description: The unique identifier generated for the request
-          schema:
-            type: string
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              errorCode:
-                type: string
-                description: The code of the error that has occurred. This field may not be returned for some errors.
-              errorMessage:
-                type: string
-                description: The human-readable description of the error that has occurred.
-    '404':
-      description: Not Found. The client has attempted to access an entity that does not exist.
       headers:
         RequestID:
           description: The unique identifier generated for the request
@@ -192,6 +174,24 @@ components:
                 description: The human-readable description of the error that has occurred.
     '400':
       description: Bad Request. The client has provided invalid data to be processed by the server.
+      headers:
+        RequestID:
+          description: The unique identifier generated for the request
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: The code of the error that has occurred. This field may not be returned for some errors.
+              errorMessage:
+                type: string
+                description: The human-readable description of the error that has occurred.
+    '404':
+      description: Not Found. The client has attempted to access an entity that does not exist.
       headers:
         RequestID:
           description: The unique identifier generated for the request
