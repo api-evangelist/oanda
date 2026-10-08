@@ -173,6 +173,12 @@ tags_raw:
 kind: contract
 access: 3rd-Party
 common:
+  - type: Plans
+    url: plans/oanda-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/oanda-rate-limits.yml
+  - type: FinOps
+    url: finops/oanda-finops.yml
   - type: CapabilityMap
     url: capabilities/oanda-capability-edges.yml
     name: OANDA Business Capability Map
