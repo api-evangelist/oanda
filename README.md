@@ -1,4 +1,4 @@
-# OANDA (oanda)
+# OANDA
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,163 +66,202 @@
 
 OANDA is a forex and CFD trading broker offering REST APIs for live and practice trading. The v20 REST API provides access to real-time forex rates, order management, trade lifecycle, position tracking, and historical OHLC candle data dating back to 2005. A separate Exchange Rates Data API delivers institutional-grade FX rates across 200+ currencies for data services use cases.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/oanda/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/oanda/main/apis.yml)
+**Areas:** Foreign Exchange · FX Trading · CFD Trading · Financial Services · Trading APIs
 
-## Scope
+## OANDA on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for OANDA is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/oanda/](https://apis.io/providers/oanda/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Forex
-- FX Trading
-- CFD Trading
-- Financial Services
-- Trading APIs
+- [OANDA Account API](https://apis.io/apis/oanda/oanda-account-api/) — Manage and retrieve OANDA trading account details, summaries, tradeable instruments, and configuration settings. Supports polling for account state changes…
+- [OANDA Order API](https://apis.io/apis/oanda/oanda-order-api/) — Create, list, modify, and cancel orders in an OANDA trading account. Supports market, limit, stop, take profit, stop loss, and trailing stop order types…
+- [OANDA Trade API](https://apis.io/apis/oanda/oanda-trade-api/) — List, retrieve, partially or fully close open trades, and manage dependent orders (take profit, stop loss, trailing stop loss) for trades in an OANDA account.
+- [OANDA Position API](https://apis.io/apis/oanda/oanda-position-api/) — List all positions (historical and open) and close out open positions for a specific instrument in an OANDA trading account.
+- [OANDA Transaction API](https://apis.io/apis/oanda/oanda-transaction-api/) — Access full transaction history for an OANDA trading account with time-based and ID-range queries. Includes a streaming endpoint for real-time transaction…
+- [OANDA Exchange Rates API](https://apis.io/apis/oanda/oanda-exchange-rates-api/) — Institutional-grade foreign exchange data service covering 200+ currencies and 38,000+ currency pairs. Provides daily average rates, period averages, ECB…
+- [OANDA Accounts API](https://apis.io/apis/oanda/oanda-accounts-api/) — The Accounts API from OANDA — 29 operation(s) for accounts.
+- [OANDA Instruments API](https://apis.io/apis/oanda/oanda-instruments-api/) — The Instruments API from OANDA — 5 operation(s) for instruments.
+- [OANDA Pricing API](https://apis.io/apis/oanda/oanda-pricing-api/) — Retrieve real-time bid/ask pricing, stream live price updates at up to 4 per second, and access historical OHLC candlestick data for any tradeable…
+- [OANDA Users API](https://apis.io/apis/oanda/oanda-users-api/) — The Users API from OANDA — 2 operation(s) for users.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### OANDA Account API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Manage and retrieve OANDA trading account details, summaries, tradeable instruments, and configuration settings. Supports polling for account state changes since a specified transaction ID.
+- [Oanda Agentic Access](https://apis.io/agentic-access/oanda/oanda-agentic-access/)
 
-#### Tags
+#### JSON Schema (156)
 
-- Accounts
-- Forex
-- Trading
+The data models the API reads and writes.
 
-#### Properties
+- [AcceptDatetimeFormat](https://apis.io/schemas/oanda/AcceptDatetimeFormat/)
+- [Account](https://apis.io/schemas/oanda/Account/)
+- [AccountChanges](https://apis.io/schemas/oanda/AccountChanges/)
+- [AccountChangesState](https://apis.io/schemas/oanda/AccountChangesState/)
+- [AccountFinancingMode](https://apis.io/schemas/oanda/AccountFinancingMode/)
+- [AccountID](https://apis.io/schemas/oanda/AccountID/)
+- [AccountProperties](https://apis.io/schemas/oanda/AccountProperties/)
+- [AccountSummary](https://apis.io/schemas/oanda/AccountSummary/)
+- [AccountUnits](https://apis.io/schemas/oanda/AccountUnits/)
+- [CalculatedAccountState](https://apis.io/schemas/oanda/CalculatedAccountState/)
+- [CalculatedPositionState](https://apis.io/schemas/oanda/CalculatedPositionState/)
+- [CalculatedTradeState](https://apis.io/schemas/oanda/CalculatedTradeState/)
+- [CancellableOrderType](https://apis.io/schemas/oanda/CancellableOrderType/)
+- [Candlestick](https://apis.io/schemas/oanda/Candlestick/)
+- [CandlestickData](https://apis.io/schemas/oanda/CandlestickData/)
+- [CandlestickGranularity](https://apis.io/schemas/oanda/CandlestickGranularity/)
+- [ClientComment](https://apis.io/schemas/oanda/ClientComment/)
+- [ClientConfigureRejectTransaction](https://apis.io/schemas/oanda/ClientConfigureRejectTransaction/)
+- [ClientConfigureTransaction](https://apis.io/schemas/oanda/ClientConfigureTransaction/)
+- [ClientExtensions](https://apis.io/schemas/oanda/ClientExtensions/)
+- [ClientID](https://apis.io/schemas/oanda/ClientID/)
+- [ClientPrice](https://apis.io/schemas/oanda/ClientPrice/)
+- [ClientRequestID](https://apis.io/schemas/oanda/ClientRequestID/)
+- [ClientTag](https://apis.io/schemas/oanda/ClientTag/)
+- [CloseTransaction](https://apis.io/schemas/oanda/CloseTransaction/)
+- …and 131 more published on APIs.io
 
-- [Documentation](https://developer.oanda.com/rest-live-v20/account-ep/)
-- [API Reference](https://developer.oanda.com/rest-live-v20/account-ep/)
+#### JSON-LD (1)
 
----
+Linked-data contexts for the provider's vocabulary.
 
-### OANDA Order API
+- [Oanda Context](https://apis.io/jsonld/oanda/oanda/)
 
-Create, list, modify, and cancel orders in an OANDA trading account. Supports market, limit, stop, take profit, stop loss, and trailing stop order types with FOK, IOC, DAY, GTD, and GTC durations.
+#### Examples (39)
 
-#### Tags
+Example requests and responses.
 
-- Orders
-- Forex
-- Trading
+- [Cancelorder](https://apis.io/examples/oanda/cancelOrder/)
+- [Closeposition](https://apis.io/examples/oanda/closePosition/)
+- [Closetrade](https://apis.io/examples/oanda/closeTrade/)
+- [Configureaccount](https://apis.io/examples/oanda/configureAccount/)
+- [Createorder](https://apis.io/examples/oanda/createOrder/)
+- [Getaccount](https://apis.io/examples/oanda/getAccount/)
+- [Getaccountchanges](https://apis.io/examples/oanda/getAccountChanges/)
+- [Getaccountinstruments](https://apis.io/examples/oanda/getAccountInstruments/)
+- [Getaccountsummary](https://apis.io/examples/oanda/getAccountSummary/)
+- [Getbaseprices](https://apis.io/examples/oanda/getBasePrices/)
+- [Getexternaluserinfo](https://apis.io/examples/oanda/getExternalUserInfo/)
+- [Getinstrumentcandles](https://apis.io/examples/oanda/getInstrumentCandles/)
+- [Getinstrumentprice](https://apis.io/examples/oanda/getInstrumentPrice/)
+- [Getinstrumentpricerange](https://apis.io/examples/oanda/getInstrumentPriceRange/)
+- [Getorder](https://apis.io/examples/oanda/getOrder/)
+- [Getposition](https://apis.io/examples/oanda/getPosition/)
+- [Getpricerange](https://apis.io/examples/oanda/getPriceRange/)
+- [Getprices](https://apis.io/examples/oanda/getPrices/)
+- [Gettrade](https://apis.io/examples/oanda/getTrade/)
+- [Gettransaction](https://apis.io/examples/oanda/getTransaction/)
+- [Gettransactionrange](https://apis.io/examples/oanda/getTransactionRange/)
+- [Gettransactionssinceid](https://apis.io/examples/oanda/getTransactionsSinceId/)
+- [Getuserinfo](https://apis.io/examples/oanda/getUserInfo/)
+- [Get_Instruments_{Instrument}_Orderbook](https://apis.io/examples/oanda/get_instruments_{instrument}_orderBook/)
+- [Get_Instruments_{Instrument}_Positionbook](https://apis.io/examples/oanda/get_instruments_{instrument}_positionBook/)
+- …and 14 more published on APIs.io
 
-#### Properties
+#### Collections (4)
 
-- [Documentation](https://developer.oanda.com/rest-live-v20/order-ep/)
-- [API Reference](https://developer.oanda.com/rest-live-v20/order-ep/)
+Postman and Open Collection request collections.
 
----
+- [OANDA v20 REST Accounts API](https://apis.io/collections/oanda/open-oanda-accounts-api/)
+- [OANDA v20 REST Accounts Instruments API](https://apis.io/collections/oanda/open-oanda-instruments-api/)
+- [OANDA v20 REST Accounts Pricing API](https://apis.io/collections/oanda/open-oanda-pricing-api/)
+- [OANDA v20 REST Accounts Users API](https://apis.io/collections/oanda/open-oanda-users-api/)
 
-### OANDA Trade API
+#### Governance rules (1)
 
-List, retrieve, partially or fully close open trades, and manage dependent orders (take profit, stop loss, trailing stop loss) for trades in an OANDA account.
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [OANDA — jsonschema rules](https://apis.io/rules/oanda/oanda-jsonschema-spectral-rules/)
 
-- Trades
-- Forex
-- Trading
+#### Security (1)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://developer.oanda.com/rest-live-v20/trade-ep/)
-- [API Reference](https://developer.oanda.com/rest-live-v20/trade-ep/)
+- [Oanda Domain Security](https://apis.io/security/oanda/oanda-domain-security/)
 
----
+#### Plans and pricing (1)
 
-### OANDA Position API
+Published plans, tiers and prices.
 
-List all positions (historical and open) and close out open positions for a specific instrument in an OANDA trading account.
+- [Oanda Plans Pricing](https://apis.io/plans/oanda/oanda-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Positions
-- Forex
-- Trading
+Published request limits.
 
-#### Properties
+- [Oanda Rate Limits](https://apis.io/rate-limits/oanda/oanda-rate-limits/)
 
-- [Documentation](https://developer.oanda.com/rest-live-v20/position-ep/)
-- [API Reference](https://developer.oanda.com/rest-live-v20/position-ep/)
+#### FinOps (1)
 
----
+What the API costs to run, by operation.
 
-### OANDA Transaction API
+- [Oanda Finops](https://apis.io/finops/oanda/oanda-finops/)
 
-Access full transaction history for an OANDA trading account with time-based and ID-range queries. Includes a streaming endpoint for real-time transaction notifications from the moment the request is made.
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Transactions
-- Forex
-- Trading
-
-#### Properties
-
-- [Documentation](https://developer.oanda.com/rest-live-v20/transaction-ep/)
-- [API Reference](https://developer.oanda.com/rest-live-v20/transaction-ep/)
-
----
-
-### OANDA Pricing API
-
-Retrieve real-time bid/ask pricing, stream live price updates at up to 4 per second, and access historical OHLC candlestick data for any tradeable instrument. Historical data is available from 2005 onward with up to 5,000 records per page.
-
-#### Tags
-
-- Pricing
-- Forex
-- Real-Time Rates
-- Historical Data
-- Candles
-
-#### Properties
-
-- [Documentation](https://developer.oanda.com/rest-live-v20/pricing-ep/)
-- [API Reference](https://developer.oanda.com/rest-live-v20/pricing-ep/)
-
----
-
-### OANDA Exchange Rates API
-
-Institutional-grade foreign exchange data service covering 200+ currencies and 38,000+ currency pairs. Provides daily average rates, period averages, ECB and national bank rates, forward rates, streaming spot rates updated every five seconds, and cryptocurrency rates. Available via annual subscription plans starting at $4,850/year.
-
-#### Tags
-
-- Exchange Rates
-- Forex
-- FX Data
-- Currencies
-
-#### Properties
-
-- [Documentation](https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/)
-- [Pricing](https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/api-plans/)
-
----
-
-## Common Resources
-
-- [Developer Portal](https://developer.oanda.com/)
+- [Website](https://www.oanda.com/)
 - [Documentation](https://developer.oanda.com/rest-live-v20/introduction/)
-- [Authentication](https://developer.oanda.com/rest-live-v20/authentication/)
-- [Best Practices](https://developer.oanda.com/rest-live-v20/best-practices/)
-- [API Comparison](https://developer.oanda.com/rest-live-v20/api-comparison/)
-- [OpenAPI Source](https://github.com/oanda/v20-openapi)
-- [Python SDK](https://github.com/oanda/v20-python)
-- [Python Samples](https://github.com/oanda/v20-python-samples)
-- [JavaScript SDK](https://github.com/oanda/v20-javascript)
-- [Java SDK](https://github.com/oanda/v20-java)
-- [GitHub Organization](https://github.com/oanda)
+- [Getting started](https://developer.oanda.com/rest-live-v20/introduction/)
+- [API reference](https://developer.oanda.com/rest-live-v20/account-ep/)
 - [Pricing](https://www.oanda.com/foreign-exchange-data-services/en/exchange-rates-api/api-plans/)
-- [Website](https://www.oanda.com)
-- [Sign Up / Demo Account](https://www.oanda.com/us-en/trading/demo-account/)
+- [GitHub](https://github.com/oanda)
+
+## API Evangelist rating
+
+**Kin Score 36.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 53.6 |
+| Contract quality | 50.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 31.6 |
+
+**Agent readiness 20.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.3** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/oanda/](https://apis.io/providers/oanda/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OANDA: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/oanda/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
